@@ -94,7 +94,6 @@
         .radar-section { order: 4; margin-top: 35px; margin-bottom: 20px; width: 100%; display: flex; flex-direction: column; align-items: center; position: relative; }
         .action-btns-group { display: flex; flex-direction: column; align-items: center; width: 100%; gap: 15px; margin-top: 20px; }
         
-        /* 1.4.6 按钮统一样式，去除一切按压动效变形 */
         .action-btn-fixed { width: 85%; max-width: 320px; height: 54px; border-radius: 50px; font-size: 1.05rem; font-weight: bold; display: flex; justify-content: center; align-items: center; margin: 0; transition: background 0.3s ease, border-color 0.3s ease; cursor: pointer; text-decoration: none; box-shadow: var(--shadow-sm); }
         .action-btn-fixed.primary { color: #FFFFFF; background: linear-gradient(90deg, #C264D6, #A638B6); border: none; }
         .action-btn-fixed.secondary { background: rgba(142, 36, 170, 0.05); color: var(--primary-color); border: 2px solid var(--primary-color); }
@@ -281,42 +280,50 @@
         body.dark-mode .desktop-q-block { background: rgba(30, 30, 30, 0.6); border-color: rgba(255,255,255,0.08); }
         body.dark-mode .desktop-q-block.highlight-flash { background: rgba(179, 136, 255, 0.1); border-color: var(--primary-color); }
 
-        /* ================= 1.4.6 极致进化版海报 UI (Oasis 绿洲杂志风 + CORS 免疫体质) ================= */
+        /* ================= 1.4.8 纯排版无图防屏蔽海报 UI ================= */
         .poster-out-viewport-wrapper { position: absolute; left: -10000px; top: -10000px; z-index: -999; }
-        .poster-container { width: 750px; background-color: #FAFAFC; background-image: radial-gradient(#E1BEE7 1.5px, transparent 1.5px); background-size: 30px 30px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif; padding: 50px 40px; box-sizing: border-box; color: #2C2C2C !important; position: relative; overflow: hidden; }
-        .poster-container::before { content: ''; position: absolute; top: -150px; left: -150px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(225,190,231,0.6) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; z-index: 0; }
-        .poster-container::after { content: ''; position: absolute; bottom: -200px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(142,36,170,0.15) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; z-index: 0; }
-        .poster-header { text-align: center; margin-bottom: 35px; position: relative; z-index: 1; }
-        .poster-sub-title { font-size: 16px; font-weight: 800; color: #8E24AA; letter-spacing: 4px; margin-bottom: 12px; font-family: 'Courier New', monospace; opacity: 0.8; }
-        .poster-title { font-size: 46px; font-weight: 900; color: #333333; margin-bottom: 15px; letter-spacing: 2px; }
-        .poster-slogan { font-size: 20px; color: #666666; font-weight: bold; line-height: 1.6; padding: 0 10px; }
+        .poster-container { width: 750px; background-color: #FDFBFF; background-image: radial-gradient(#D1B3E0 1.5px, transparent 1.5px); background-size: 30px 30px; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, sans-serif; padding: 50px 45px; box-sizing: border-box; color: #2C2C2C !important; position: relative; overflow: hidden; }
+        /* 增加网格背景与高级渐变块，无需任何外部图片 */
+        .poster-container::before { content: ''; position: absolute; top: -150px; left: -150px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(194,100,214,0.15) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; z-index: 0; pointer-events: none; }
+        .poster-container::after { content: ''; position: absolute; bottom: -200px; right: -150px; width: 550px; height: 550px; background: radial-gradient(circle, rgba(142,36,170,0.12) 0%, rgba(255,255,255,0) 70%); border-radius: 50%; z-index: 0; pointer-events: none; }
         
-        .poster-card { position: relative; z-index: 1; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-radius: 35px; padding: 55px 45px; box-shadow: 0 25px 60px rgba(74,20,140,0.06); border: 1px solid rgba(225,190,231,0.5); display: flex; flex-direction: column; align-items: center; }
-        .poster-ssr-alert { display: none; background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%); color: #fff; font-size: 20px; font-weight: 900; padding: 8px 25px; border-radius: 30px; margin-bottom: 25px; box-shadow: 0 6px 15px rgba(255,140,0,0.3); }
-        .poster-prob { font-size: 18px; color: #6A1B9A; font-weight: bold; margin-bottom: 15px; background: #F4E8F8; padding: 6px 18px; border-radius: 20px; border: 1px solid rgba(142,36,170,0.1); }
-        .poster-type-name { font-size: 80px; font-weight: 900; background: linear-gradient(135deg, #C5A059 0%, #9C27B0 45%, #4A148C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 40px; text-align: center; letter-spacing: 2px; line-height: 1.1; }
+        .poster-header { text-align: center; margin-bottom: 40px; position: relative; z-index: 1; }
+        .poster-sub-title { font-size: 18px; font-weight: 800; color: #8E24AA; letter-spacing: 6px; margin-bottom: 12px; font-family: 'Courier New', monospace; opacity: 0.85; }
+        .poster-title { font-size: 52px; font-weight: 900; color: #2C2C2C; margin-bottom: 15px; letter-spacing: 3px; }
+        .poster-slogan { font-size: 22px; color: #666666; font-weight: bold; line-height: 1.6; padding: 0 20px; }
+        
+        .poster-card { position: relative; z-index: 1; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(15px); border-radius: 40px; padding: 60px 45px; box-shadow: 0 25px 60px rgba(74,20,140,0.08); border: 1px solid rgba(225,190,231,0.6); display: flex; flex-direction: column; align-items: center; }
+        
+        .poster-ssr-alert { display: none; background: linear-gradient(135deg, #FFD700 0%, #FF8C00 100%); color: #fff; font-size: 22px; font-weight: 900; padding: 10px 30px; border-radius: 30px; margin-bottom: 30px; box-shadow: 0 6px 15px rgba(255,140,0,0.3); letter-spacing: 2px;}
+        .poster-type-name { font-size: 95px; font-weight: 900; background: linear-gradient(135deg, #D81B60 0%, #8E24AA 50%, #4A148C 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 25px; text-align: center; letter-spacing: 4px; line-height: 1.1; }
         .poster-type-name.ssr-text { background: linear-gradient(135deg, #FFD700 0%, #FF4500 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .poster-main-img { width: 220px; height: 220px; border-radius: 45px; object-fit: cover; box-shadow: 0 20px 40px rgba(142,36,170,0.15), inset 0 0 0 2px rgba(255,255,255,0.5); margin-bottom: 40px; border: 6px solid #FFFFFF; background-color: #FAFAFC; }
-        .poster-type-slogan { font-size: 26px; color: #D81B60; font-style: italic; font-weight: 800; margin-bottom: 50px; text-align: center; line-height: 1.6; padding: 0 20px; }
         
-        .poster-section-title { font-size: 24px; color: #333333; font-weight: 900; width: 100%; border-bottom: 2px solid rgba(225,190,231,0.4); padding-bottom: 15px; margin-bottom: 35px; margin-top: 35px; display: flex; align-items: center; justify-content: flex-start; letter-spacing: 1px; }
-        .poster-section-title::before { content: ''; display: inline-block; width: 6px; height: 24px; background: linear-gradient(to bottom, #C264D6, #8E24AA); margin-right: 14px; border-radius: 4px; }
+        .poster-prob-box { background: #F4E8F8; border: 2px solid rgba(142,36,170,0.15); border-radius: 25px; padding: 10px 25px; margin-bottom: 35px; }
+        .poster-prob { font-size: 20px; color: #6A1B9A; font-weight: bold; font-family: 'Courier New', monospace; }
+        .poster-type-slogan { font-size: 28px; color: #D81B60; font-style: italic; font-weight: 800; margin-bottom: 45px; text-align: center; line-height: 1.6; padding: 0 20px; width: 100%; border-bottom: 2px dashed rgba(225,190,231,0.5); padding-bottom: 45px;}
         
-        .poster-radar-container { width: 100%; display: flex; justify-content: center; margin-bottom: 45px; background: linear-gradient(180deg, rgba(248,244,252,0.3) 0%, rgba(248,244,252,0.8) 100%); border-radius: 30px; padding: 30px 20px; border: 1px solid rgba(225,190,231,0.3); }
-        .poster-radar-img { width: 440px; height: 440px; }
+        .poster-section-title { font-size: 26px; color: #333333; font-weight: 900; width: 100%; margin-bottom: 30px; margin-top: 20px; display: flex; align-items: center; justify-content: flex-start; letter-spacing: 2px; }
+        .poster-section-title::before { content: ''; display: inline-block; width: 8px; height: 26px; background: linear-gradient(to bottom, #C264D6, #8E24AA); margin-right: 16px; border-radius: 4px; }
         
-        .poster-hero-row { display: flex; align-items: center; justify-content: flex-start; background: #FFFFFF; padding: 25px; border-radius: 25px; border: 1px solid rgba(225,190,231,0.5); box-shadow: 0 10px 25px rgba(142,36,170,0.04); margin-bottom: 30px; width: 100%; }
-        .poster-hero-img { width: 110px; height: 110px; border-radius: 25px; object-fit: cover; border: 4px solid #F3E5F5; margin-right: 25px; background-color: #FAFAFC; }
-        .poster-hero-name { font-size: 40px; font-weight: 900; background: linear-gradient(135deg, #F5A623 0%, #FF4E50 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .poster-radar-container { width: 100%; display: flex; justify-content: center; margin-bottom: 50px; background: linear-gradient(180deg, rgba(248,244,252,0.4) 0%, rgba(248,244,252,0.8) 100%); border-radius: 35px; padding: 40px 20px; border: 1px solid rgba(225,190,231,0.4); box-shadow: inset 0 0 20px rgba(142,36,170,0.03); }
+        .poster-radar-img { width: 450px; height: 450px; mix-blend-mode: multiply; }
         
-        .poster-text { width: 100%; font-size: 22px; line-height: 1.85; color: #4A4A4A !important; text-align: justify; margin-bottom: 30px; }
-        .poster-text .desc-tagline { font-size: 28px; font-weight: 900; color: #D81B60 !important; background: none !important; -webkit-text-fill-color: #D81B60 !important; margin-bottom: 30px; text-align: center; padding-bottom: 20px; border-bottom: 2px dashed rgba(216,27,96,0.15); }
-        .poster-text .desc-section { margin-bottom: 25px; color: #4A4A4A !important; }
-        .poster-text .desc-label { font-weight: 900; color: #8E24AA !important; margin-right: 8px; font-size: 23px; }
+        .poster-hero-section { width: 100%; background: #FDFBFF; padding: 35px; border-radius: 30px; border: 2px solid rgba(225,190,231,0.5); margin-bottom: 40px; box-shadow: 0 10px 30px rgba(142,36,170,0.05); }
+        .poster-hero-name-row { display: flex; align-items: center; margin-bottom: 25px; }
+        .poster-hero-circle { width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #F5A623, #FF4E50); display: flex; justify-content: center; align-items: center; color: #FFF; font-size: 32px; font-weight: 900; margin-right: 20px; box-shadow: 0 8px 20px rgba(255,78,80,0.3); font-family: "Courier New", monospace;}
+        .poster-hero-name { font-size: 42px; font-weight: 900; color: #2C2C2C; }
         
-        .poster-footer { position: relative; z-index: 1; margin-top: 35px; text-align: center; background: rgba(255, 255, 255, 0.95); padding: 35px; border-radius: 35px; box-shadow: 0 15px 35px rgba(142,36,170,0.06); border: 1px solid rgba(225,190,231,0.5); }
-        .poster-url-title { font-size: 24px; font-weight: 900; color: #333333; margin-bottom: 15px; letter-spacing: 2px; }
-        .poster-url { font-size: 22px; color: #8E24AA; font-family: 'Courier New', monospace; font-weight: bold; padding: 15px 35px; background: #F8F4FA; border-radius: 20px; display: inline-block; border: 1px dashed rgba(142,36,170,0.3); }
+        .poster-desc-section { width: 100%; }
+        .poster-text { width: 100%; font-size: 24px; line-height: 1.8; color: #4A4A4A !important; text-align: justify; }
+        .poster-text .desc-tagline { font-size: 30px; font-weight: 900; color: #D81B60 !important; background: none !important; -webkit-text-fill-color: #D81B60 !important; margin-bottom: 35px; text-align: center; padding-bottom: 25px; border-bottom: 2px dashed rgba(216,27,96,0.15); letter-spacing: 2px; }
+        .poster-text .desc-section { margin-bottom: 28px; color: #4A4A4A !important; }
+        .poster-text .desc-label { font-weight: 900; color: #8E24AA !important; margin-right: 10px; font-size: 25px; }
+        
+        .poster-footer { position: relative; z-index: 1; margin-top: 45px; display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.95); padding: 40px; border-radius: 40px; box-shadow: 0 15px 35px rgba(142,36,170,0.06); border: 1px solid rgba(225,190,231,0.5); }
+        .poster-footer-left { display: flex; flex-direction: column; justify-content: center; }
+        .poster-url-title { font-size: 26px; font-weight: 900; color: #333333; margin-bottom: 12px; letter-spacing: 2px; }
+        .poster-url { font-size: 22px; color: #8E24AA; font-family: 'Courier New', monospace; font-weight: bold; }
+        .poster-footer-right { width: 100px; height: 100px; background: linear-gradient(135deg, #E1BEE7, #C264D6); border-radius: 20px; display: flex; justify-content: center; align-items: center; color: #FFF; font-weight: bold; font-size: 16px; text-align: center; line-height: 1.4; box-shadow: 0 10px 20px rgba(142,36,170,0.2); }
 
         .poster-loading-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 10, 20, 0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; opacity: 0; pointer-events: none; transition: opacity 0.4s ease; }
         .poster-loading-overlay.active { opacity: 1; pointer-events: auto; }
@@ -354,7 +361,7 @@
             <button class="about-btn" id="restart-btn" style="display: none; margin-bottom: 12px; font-size: 0.85rem;" onclick="resetTestAndClear()">重新开始测试</button>
             <button class="btn" id="main-start-btn" onclick="startTest()">连接峡谷数据网络</button>
         </div>
-        <div class="disclaimer" style="position: absolute; bottom: 15px; left: 0; width: 100%; padding-top: 0; padding-bottom: 0;">Version 1.4.6</div>
+        <div class="disclaimer" style="position: absolute; bottom: 15px; left: 0; width: 100%; padding-top: 0; padding-bottom: 0;">Version 1.4.8</div>
     </section>
 
     <section id="question-screen" class="screen">
@@ -433,10 +440,9 @@
                 </div>
             </div>
 
-            <!-- Version 1.4.6 极致规整的去动效等宽按钮群 -->
             <div class="action-btns-group">
                 <a class="action-btn-fixed primary" onclick="generatePoster()">生成我的人格报告</a>
-                <a class="action-btn-fixed secondary" onclick="resetTest()">再测一次</a>
+                <a class="action-btn-fixed secondary" onclick="resetTestAndClear()">再测一次</a>
                 <a class="action-btn-fixed secondary" onclick="showAllTypes()">查看所有人格类型</a>
                 <button class="about-btn" onclick="showAbout()">关于作者</button>
             </div>
@@ -469,7 +475,7 @@
             <div class="about-item-modern">
                 <div class="about-q">长啥样？</div>
                 <div class="about-a">
-                    <img class="author-avatar" src="https://img.cdn1.vip/i/69dfa85598bbf_1776265301.webp" alt="作者帅照">
+                    <img class="author-avatar" src="https://via.placeholder.com/140/E1BEE7/8E24AA?text=Author" alt="作者照片">
                 </div>
             </div>
             <div class="about-item-modern">
@@ -481,7 +487,7 @@
             </div>
             <div class="about-item-modern">
                 <div class="about-q">为何做这个？</div>
-                <div class="about-a about-a-gradient" id="trigger-hidden" style="cursor: pointer; user-select: none;">闲着无聊</div>
+                <div class="about-a about-a-gradient" id="trigger-hidden" style="cursor: pointer; user-select: none;">闲的没事儿干</div>
             </div>
             <div class="about-item-modern">
                 <div class="about-q">发布网页？</div>
@@ -501,7 +507,7 @@
             <div class="about-item-modern">
                 <div class="about-q">版本号？</div>
                 <div class="about-a">
-                    <div class="contact-text" style="font-style: normal; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; color: var(--primary-color); font-weight: bold;" onclick="showUpdateScreen()">Version 1.4.6</div>
+                    <div class="contact-text" style="font-style: normal; text-decoration: underline; text-underline-offset: 4px; cursor: pointer; color: var(--primary-color); font-weight: bold;" onclick="showUpdateScreen()">Version 1.4.8</div>
                 </div>
             </div>
         </div>
@@ -509,18 +515,18 @@
     </section>
 
     <section id="update-screen" class="screen">
-        <h1 class="about-title" style="font-size: 2.3rem;">Version 1.4.6<br>更新通知</h1>
+        <h1 class="about-title" style="font-size: 2.3rem;">Version 1.4.8<br>更新通知</h1>
         <div class="update-content-wrapper" style="flex: 1; margin-bottom: 40px; padding-bottom: 40px;">
-            <p class="update-intro">感谢各位玩家的宝贵反馈，针对海报生成失败的问题与视觉体验，进行了紧急修复与全面重构：</p>
+            <p class="update-intro">针对部分设备海报持续加载失败的问题，进行了终极重构与优化：</p>
             <div class="update-section">
-                <div class="update-section-title">1. 海报渲染引擎 100% 防御机制</div>
+                <div class="update-section-title">1. 海报生成 100% 免疫阻断</div>
                 <ul class="update-list">
-                    <li>(HOTFIX) 彻底修复部分设备因图床被拦截导致海报生成挂起的 Bug。现引入「图片防阻断熔断机制」，当遇到网络跨域拦截时，系统将瞬间使用内建设计算法生成专属卡片占位图，确保海报 100% 畅通导出。</li>
-                    <li>全面重塑海报排版，采用 Oasis 现代风（杂志呼吸感），大幅提升海报的空间感与高级质感。</li>
+                    <li>(HOTFIX) 彻底移除了海报模板中的外部图片依赖。现采用纯粹的**文字排版与网格色彩设计**，无需发起任何网络请求，真正实现毫秒级顺发，告别“一直在加载”。</li>
+                    <li>海报整体排版大幅升级，采用高颜值杂志与报纸分栏风格，信息更为聚焦凝练，视觉冲击力更强。</li>
                 </ul>
             </div>
             <div class="update-section">
-                <div class="update-section-title">2. 界面与体验打磨</div>
+                <div class="update-section-title">2. 界面与体验打磨 (1.4.6)</div>
                 <ul class="update-list">
                     <li>精调全图鉴页面的空间留白，优化视觉呼吸感。</li>
                     <li>重构结果页核心按钮，去除冗余的动态形变波纹效果，实现等宽对齐，保证极致平整的工业级视觉一致性。</li>
@@ -545,18 +551,16 @@
 
     <div id="update-modal" class="modal-overlay">
         <div class="modal-box">
-            <div class="modal-title">Version 1.4.6 修复公告</div>
+            <div class="modal-title">Version 1.4.8 修复公告</div>
             <div class="modal-content">
-                <p class="update-intro" style="font-size: 0.9rem; margin-bottom: 15px;">感谢反馈！本次更新主要解决：</p>
-                <div class="update-section-title" style="font-size: 0.95rem;">1. 海报渲染 Bug 彻底修复</div>
+                <p class="update-intro" style="font-size: 0.9rem; margin-bottom: 15px;">本次更新带来终极海报生成方案：</p>
+                <div class="update-section-title" style="font-size: 0.95rem;">1. 彻底解决海报卡死问题</div>
                 <ul class="update-list" style="font-size: 0.85rem;">
-                    <li>引入图片防阻断熔断机制，遭遇跨域拦截自动使用精美 CSS SVG 替代，<strong>保障海报 100% 成功生成</strong>。</li>
-                    <li>海报排版重塑为极简杂志风，更具高级感。</li>
+                    <li>全面移除海报内的外部图片依赖，采用**高颜值文字排版与色彩分栏设计**，生成过程无需网络请求，<strong>保证 100% 瞬间出图！</strong>。</li>
                 </ul>
-                <div class="update-section-title" style="font-size: 0.95rem;">2. 界面精细化调整</div>
+                <div class="update-section-title" style="font-size: 0.95rem;">2. 海报排版大焕新</div>
                 <ul class="update-list" style="font-size: 0.85rem; margin-bottom: 0;">
-                    <li>全图鉴间距调优，增强整体空间感。</li>
-                    <li>去除结果页按钮的变形动效，统一尺寸，维持视觉平整一致性。</li>
+                    <li>极简大字号标题搭配核心色彩点缀，让海报更具高级感与分享欲望。</li>
                 </ul>
             </div>
             <button class="modal-btn" onclick="closeUpdateModal()">我已知晓</button>
@@ -565,7 +569,7 @@
 
     <div id="result-notice-modal" class="modal-overlay hidden" style="display: none;">
         <div class="modal-box">
-            <div class="modal-title">系统说明</div>
+            <div class="modal-title">系统特别说明</div>
             <div class="modal-content">
                 <ul class="update-list" style="font-size: 0.95rem; margin-top: 15px;">
                     <li>为平衡各个类型触发概率，测试<strong>结果可能会被夸大判定</strong>。</li>
@@ -578,10 +582,11 @@
 </div>
 
 <div class="global-desktop-footer">
-    Version 1.4.6&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;本网页不作商用 无广告不收费&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;测试结果仅供娱乐 无参考价值
+    Version 1.4.8&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;本网页不作商用 无广告不收费&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;测试结果仅供娱乐 无参考价值
 </div>
 
-<!-- ================= [ 1.4.6 极致免疫跨域版：绿洲风海报 DOM ] ================= -->
+<!-- ================= [ 1.4.8 纯排版无图防屏蔽海报 DOM ] ================= -->
+<!-- 该 DOM 内部没有任何 <img> 外部链接，纯靠排版和 Canvas，彻底杜绝跨域挂起 -->
 <div class="poster-out-viewport-wrapper">
     <div id="poster-container" class="poster-container">
         <div class="poster-header">
@@ -591,29 +596,40 @@
         </div>
         <div class="poster-card">
             <div class="poster-ssr-alert" id="poster-ssr-alert">✨ 极稀有·隐藏人格达成！ ✨</div>
-            <div class="poster-prob" id="poster-prob"></div>
             <div class="poster-type-name" id="poster-type-name"></div>
-            <img class="poster-main-img" id="poster-main-img" crossorigin="anonymous">
+            
+            <div class="poster-prob-box">
+                <div class="poster-prob" id="poster-prob"></div>
+            </div>
             <div class="poster-type-slogan" id="poster-type-slogan"></div>
             
-            <div class="poster-section-title">系统判定 - 功能数值</div>
+            <div class="poster-section-title">系统判定 - 核心指标</div>
             <div class="poster-radar-container">
                 <img id="poster-radar-img" class="poster-radar-img">
             </div>
             
-            <div class="poster-section-title">系统推测 - 本命英雄</div>
-            <div class="poster-hero-row">
-                <img id="poster-hero-img" class="poster-hero-img" crossorigin="anonymous">
-                <div id="poster-hero-name" class="poster-hero-name"></div>
+            <div class="poster-hero-section">
+                <div class="poster-section-title" style="margin-top: 0; margin-bottom: 20px;">系统推测 - 本命英雄</div>
+                <div class="poster-hero-name-row">
+                    <div class="poster-hero-circle" id="poster-hero-circle">英</div>
+                    <div class="poster-hero-name" id="poster-hero-name"></div>
+                </div>
+                <div class="poster-text" id="poster-hero-desc"></div>
             </div>
-            <div class="poster-text" id="poster-hero-desc"></div>
             
-            <div class="poster-section-title">系统分析 - 类型概要</div>
-            <div class="poster-text" id="poster-desc-text"></div>
+            <div class="poster-desc-section">
+                <div class="poster-section-title">系统分析 - 类型概要</div>
+                <div class="poster-text" id="poster-desc-text"></div>
+            </div>
         </div>
         <div class="poster-footer">
-            <div class="poster-url-title">测测你的专属峡谷人格</div>
-            <div class="poster-url">🔗 belate-stay.github.io</div>
+            <div class="poster-footer-left">
+                <div class="poster-url-title">测测你的专属峡谷人格</div>
+                <div class="poster-url">🔗 belate-stay.github.io</div>
+            </div>
+            <div class="poster-footer-right">
+                扫码<br>或者<br>输入网址<br>立即测试
+            </div>
         </div>
     </div>
 </div>
@@ -625,7 +641,7 @@
             <circle class="track" cx="30" cy="30" r="26" style="stroke: rgba(255,255,255,0.2);"></circle>
             <circle class="path" cx="30" cy="30" r="26" style="stroke: #FFF;"></circle>
         </svg>
-        <div class="pl-text" id="pl-msg-text">正在启动防跨域安全渲染系统...<br><span style="font-size:0.9rem; opacity:0.8;">(正在为您绘制高规格防屏蔽画卷，请勿离开)</span></div>
+        <div class="pl-text" id="pl-msg-text">正在生成高颜值排版海报...<br><span style="font-size:0.9rem; opacity:0.8;">(纯文字渲染引擎启动，无需等待网络图片)</span></div>
     </div>
     <div id="poster-display-area" style="display: none; flex-direction: column; align-items: center; width: 90%; max-width: 450px; max-height: 85vh; overflow-y: auto; overflow-x: hidden; scrollbar-width: none; -ms-overflow-style: none;"></div>
 </div>
@@ -641,8 +657,8 @@
 
     const questionsData=[{question:"队友出现了一波极其离谱的失误（比如闪现撞墙、技能全空）导致团灭，你会？",options:["叹口气，谁都有失误的时候，打不了假装自己和四个AI在玩。","毫不受影响，立即在脑海中计算补救方案，发信号指挥大家防守。","直接开麦或者打字，不仅要点出他的失误，还要顺带质疑他的分数（段位）和水平。","狂点那个队友的头像，或者连发三次“干得漂亮”。"]},{question:"逆风局，三路外塔全破，经济落后5000，你的第一战术直觉是？",options:["自己一个人去野区蹲伏，试图抓对面的落单人员或找机会绕回打一波出其不意。","坚决不接团，自己去带最危险的边线，靠一己之力把对面的节奏拖垮。","跟着经济最高的大哥走，保护他或者配合他抓人。","疯狂发信号让队友抱团收缩，死守高地，绝对不单走。"]},{question:"当你想练习一个新英雄时，你最倾向于选择哪一类？",options:["亚瑟、白起这类操作极其简单，哪里亮了点哪里的英雄。","元歌、露娜等有极高操作上限，纯靠微操的机制怪。","王昭君、张飞这类只要放好关键技能，靠战术吃香的英雄。","既需要极致微操，又极其考验大局观和进场时机的全能大核。"]},{question:"关于“探草丛”和“视野控制”，你的日常习惯更偏向于？",options:["尽量用技能去探草，确认安全后再走过去。","觉得对面应该不在，凭直觉直接走过去，节省时间。","喜欢用肉身去压位置，看见人就直接贴脸开干，谁怕谁！","在没有视野的情况下绝对不进河道，哪怕漏掉一波兵线也要等队友。"]},{question:"当你在野区遭遇敌方三人包夹，无路可逃时，你会怎么做？",options:["肾上腺素飙升！立刻找对面最脆的人，试图极限手速换掉一个！","直接放弃抵抗，双手离开手机准备看黑白电视。","螺旋走位极限换掉一个，还能成功丝血逃生，骗出对面所有大招。","边往远离己方资源的地方跑边拖延时间，为队友创造推塔空间。"]},{question:"团战爆发时，你最舒服的输出/站位距离是？",options:["藏在视野盲区，等待一击必杀的贴脸距离。","站在大后方，用超远距离技能不断消耗对手。","保持在能平A到对面，同时对面战士摸不到我的极限拉扯距离。","顶在最前面卡住视野，把后背和安全留给队友。"]},{question:"游戏中后期，你正在一条兵线上发育，自家另一个核心C位也靠了过来准备吃线，你会？",options:["直接掉头去其他路或者野区，把这波安全线让给队友发育。","留两个残血小兵，大家一起平分经济。","立刻发“撤退”，或者直接用最快速度把兵线清光，我的发育才是关键。","假装没看见，谁凭本事补到最后一下算谁的。"]},{question:"局内遇到敌方在公屏疯狂打字嘲讽你（比如“就这？”、“来抓我啊”），你会？",options:["气不过，呼叫队友：“兄弟们针对一下这个对面最嚣张的”。","内心毫无波澜甚至有点想笑，顺势利用他嚣张的心理勾引或蹲伏。","觉得对面很无聊，心平气和的逗逗他或者直接在设置里关闭局内文字聊天。","不能放过！直接公屏对线，并且接下来的整局游戏死盯着他杀。"]},{question:"游戏开局1分钟，你在对线期通过手法把对面打成了丝血，但对面缩在塔下不出来，此时你会？",options:["迅速清完线，趁他回城的时间去吃个河蟹或者支援队友。","果断闪现进塔强杀！哪怕一换一，气势上也不能输！","绝对不越塔，但严格控住兵线卡他，让他吃不到这波经验和经济。","站在塔边缘尝试用远距离技能摸奖，摸到血赚，摸不到拉倒。"]},{question:"对线期，你发现对面是个带标的绝活哥，手法极其刁钻，你会怎么应对？",options:["遇强则强！不仅在对拼中操作拉满，还能敏锐洞察他的失误瞬间反打。","躲在塔下瑟瑟发抖，连兵线都不敢吃，就等他推。","激发了我的斗志！我就要跟他硬碰硬，看看谁的操作更细！","立刻改变打法，绝不和他对拼，疯狂发信号叫队友来抓。"]},{question:"在你的核心装备（如破军、大书等）做出来之前，你的战术是？",options:["只接稳赢的收割局，绝不主动挑事。","装备不够操作凑，只要看到机会，随时敢上去拼到底！","边发育边打架，有架打就不想错过，人头也是钱。","完全避战，只要对面不推到水晶，就别叫我打团。"]},{question:"如果你今天经历了排位6连败，你会怎么做？",options:["肯定是CXK机制发力了，选奇葩英雄开摆，既然赢不了那为什么还有认真玩？","默默关掉排位，去打几局娱乐模式或者去玩别的游戏放松一下。","破防了，去游戏大厅或者社交平台发帖怒喷匹配机制。","觉得今天是“系统制裁日”，果断下线，明天的运气会更好。"]},{question:"当你拿到一血，有了少量的经济领先，你接下来的第一反应是？",options:["看看哪条路的队友有劣势，准备过去帮他缓解压力。","立刻入侵对面野区或控中立资源，极致扩大自己的经济雪球。","回线上继续压制对位敌人，争取早点推掉一塔解放自己。","帮队友抢线，然后带着队友一起入侵，把自己的优势辐射给全队。"]},{question:"如果看大神的直播或视频教学，你最喜欢看什么内容？",options:["《三分钟教你掌握打野前期刷野路线、兵线运营与Gank思路》。","《光速三连决胜！某某英雄进阶连招教学与手速拆解》。","《全能野王第一视角：极限微操与窒息节奏的完美结合》。","《搞笑下饭锦集！青铜局那些让你笑出腹肌的离谱操作》。"]},{question:"BP阶段，你是五楼，此时队伍里已经选了四个脆皮，没有前排和开团，你会？",options:["选个半肉战士或者带点控制的英雄，稍微折中一下。","毫不犹豫锁下自己的绝活绝活输出英雄，绝不把输赢交给这几个路人。","叹口气，为了阵容合理，掏出自己不太想/会玩的肉盾/硬控补位。","选个清线快能单带的英雄，避免5v5团战，靠牵制赢。"]},{question:"游戏进入大逆风，团队经济极度匮乏，你会怎么调整自己的打法？",options:["疯狂寻找对面的落单脆皮，只要能切掉敌方C位，我死也值了。","努力清线守塔，用技能快速处理兵线，绝不给对面上高地的机会。","拼命吃所有能吃的安全经济，坚信只要我装备成型就能翻盘。","把所有经济让给输出位，自己哪怕不买装备也要先做保人/开团装。"]},{question:"当你玩打野、边路或中路时，对敌方野区（反野）的态度是？",options:["对面野区就是我家，开局就进去反，反不到也要恶心对面。","只在敌方打野明显在另一半地图露头时，才去偷几个小野。","很少反野，守好自家的一亩三分地、安稳刷钱最踏实。","看对线情况，对面稍有劣势我就会去吃他的野怪。"]},{question:"游戏结算界面的“点赞”功能，你是如何使用的？",options:["几乎从来不点赞，游戏结束就是结束，快速点击“返回大厅”。","习惯性地给带飞的大哥，或者互动很开心的队友点赞。","赢了互相点赞，输了就算他拿了败方MVP也绝对不点，甚至想点举报。","很少点赞，除非队友配合相当默契或者自己发挥的不错才会点赞。"]},{question:"在你心目中，一局游戏打得“最爽”的时刻是？",options:["完美配合队友打出一波 0换5 的团战，行云流水。","逆风情况下自己单带拆掉对面水晶，绝境偷塔，激情获胜。","哪怕自己战绩平平，但成功保住了己方大哥，最终大哥疯狂夸你。","经济全场碾压，对面看我一眼就得死，体会降维打击的快感。"]},{question:"你在游戏设置界面的偏好是？",options:["设置一次就不管了，怎么调都无所谓，全看今天手气。","会仔细调整“锁敌头像显示”、“视野范围”等战术局势设置。","既精调操作手感键位，又时刻关注锁敌视野等战术反馈选项。","极度关注轮盘灵敏度、技能取消方式，为了手感改键位大小。"]},{question:"顺风局，你们经济领先6000，但对面开始死守高地，你会怎么终结比赛？",options:["在高地外面一直晃悠，试图用技能消耗或者骗对面的技能尝试开团。","彻底清空对面野区，控下所有龙王，把对面锁在基地里窒息而死。","疯狂发“请求集合”，带头越塔强冲高地，相信数值的碾压。","不着急上高地，把三路兵线控好，同时推进，让对面首尾不能相顾。"]},{question:"关于游戏中的“社交和找搭子”，以下描述最符合你的是？",options:["组不组队无所谓，谁技术好能上分我就和谁玩，不行就换人。","游戏胜负甚至没有社交重要，只要陪我玩的人有趣/声音好听，一直连败也开心。","纯粹的单排孤狼，觉得多排还要照顾别人的情绪，太麻烦了。","喜欢组排，因为和朋友一边打一边聊天（哪怕互喷）才是游戏的精髓。"]},{question:"对于游戏中的辅助装/团队增益装备（如近卫、救赎、星泉等），你的看法是？",options:["看阵容出，如果有保人需求就出，顺风还是出点打伤害或减速的装备。","除非系统强制要求，否则更喜欢出能提升自己保命或移速的装备。","必出神装。给团队加护盾/回血/加双抗，能极大提升团战容错率。","极其讨厌出纯团队装，就算是玩辅助，也要出点法强/黑切，把命运掌握在自己手里。"]},{question:"团战爆发时，你的眼睛和注意力最主要集中在屏幕的哪个区域？",options:["自己的英雄模型，高度集中于走位躲技能和技能连招衔接。","一心多用，既能完美衔接自身连招，又能洞察敌方关键人物动向。","脑子一片空白，团战一打响就随便乱按技能，听天由命。","频繁扫视小地图，纵观整个战场的站位阵型和视野状况。"]},{question:"团战中，你对自己大招/关键控制技能的释放时机把控是？",options:["捏在手里，等到对面交完位移或者残血时才用来收割。","极度谨慎，除非看到对面最核心的C位露出致命破绽，否则死都不放。","先手果断交大招压低对面血线或骗技能，主打一个气势压制。","看到有2-3个人站在一起，不管是谁直接砸大招。"]},{question:"团战爆发的瞬间，你的第一直觉目标是谁？",options:["对面的射手或无位移法师，我的眼里只有他们。","谁站位最密集或者谁血量最低，我就把AOE伤害砸向谁。","谁离我最近我就打谁，保持安全距离持续输出前排。","盯紧对面的刺客或突进英雄，绝不让他们靠近我方核心。"]},{question:"排位遇到野王/带飞的队友，你的态度通常是？",options:["选个带控制的工具人或者硬辅，全程当他的挂件，舒服躺赢。","管他多强，我也要选我自己想秀的英雄，MVP必须是大家各凭本事。","尽量不送，配合他的节奏打，稳扎稳打。","偶尔蹭蹭他的节奏，但还是要保证自己的发育节奏不能乱。"]},{question:"一局游戏结束后进行自我复盘，你最容易因为什么事情感到后悔？",options:["“那波我不该去下路的，应该跟着大部队拿大龙，节奏全断了。”","“那波我不仅连招失误了，而且进场时机也不对，思路和手法的双重溃败。”","“哎，我刚刚是不是卡了？怎么莫名其妙就黑屏了？”","“哎呀！那波如果我闪现早交0.5秒，大招再准一点，我就能五杀了！”"]},{question:"一局极度胶着、耗时30分钟的世纪大战，最终我方水晶被推，你的第一反应是？",options:["心里极度难受，马上切到微信/大厅找朋友吐槽这把有多倒霉。","气得摔手机，在结算界面找那个战绩最差的队友一顿疯狂输出。","顾不上那么多，直接再开一把，下把一定能赢回来！","直接点开回放或者数据面板，冷静分析最后一波到底是谁的问题，输在哪里。"]},{question:"一波惨烈的团战后，你侥幸残血活了下来，此时队友正在追击对面的残血，你会？",options:["哪怕只有一滴血，也要走位上去给队友探草丛视野或者帮忙扛一下塔。","远远地跟着，虽然不敢平A，但可以在关键时刻给个控制或加成。","赶紧找个安全的地方回城，活下来守塔/清线才是最实在的。","在边缘OB一下，看看有没有掉落的野怪可以刷，不参与追击。"]},{question:"在一波精彩的单杀或者极限反杀后，你会怎么做？",options:["必须站在原地狂按回城嘲讽，或者打字“怎么说？”、“略胜一筹”等等","立刻隐藏进草丛回城，思考对面打野大概还有几秒会赶到这片区域。","期待队友能发一句“咱打野/中单/对抗/发育路牛啊”，如果没人发心里会认为队友不懂得欣赏。","面无表情地把兵线推进塔，看一眼经济面板计算差值。"]},{question:"以下哪种操作会让你觉得自己的英雄“帅呆了”？",options:["万军丛中取敌将首级，随后多段位移潇洒离去。","一个完美的大招命中敌方4-5人，瞬间扭转战局。","依靠风骚走位和吸血，在残血状态下像走钢丝一样持续反杀多人。","丝血抗下成吨致命伤害，掩护队友全部安全撤退。"]},{question:"面对残血敌人的极致诱惑（对方交了闪现逃进野区），你的下意识反应是？",options:["追两步看看，如果几秒内追不上或者没视野了就算了。","追！必须追！哪怕追到对面泉水门口，哪怕交出所有位移也要弄死他！","绝对不追，这很可能是对面在“钓鱼”，前面草丛肯定藏了四个大汉。","穷寇莫追，他回家补血的时间足够我推掉一个塔或者拿条龙了。"]},{question:"在你的理解中，什么才叫真正的“高手（天秀）”？",options:["兵不血刃，通过完美的转线和压塔，让对面连团都没资格接。","微操与大局并重，既能丝血反杀，又能完美控龙推塔窒息对面。","只要能赢就行，什么微操视野的太累了，游戏嘛开心就好。","丝血反杀三人，技能精准度100%，肌肉记忆般的极限微操。"]},{question:"你在对局中最常使用的局内快捷消息/动作是哪一类？",options:["几乎不用快捷消息，全靠小地图的Pin（感叹号/标记点）进行纯战术交流。","“谢谢你”、“我来抓人了”、“别急，等我”。","“收到”、“发起进攻”、“状态不好，撤退”。","亮回城特效、疯狂按表情、发“呵呵，打得不错”、“抱歉”。"]},{question:"大后期，你们刚打赢一波惨烈的团战，敌方还剩1人存活，我方剩3个半血，你会主张？",options:["立刻转头去打风暴龙王，拿稳buff再推进，确保万无一失。","啥也别管，直接顺着兵线中推！这波能直接一波猝死对面！","赶紧各自回城补血，把自家野区清一清，等全员状态好了再打。","尝试拔掉对面的高地塔，拔完立刻撤退。"]}];
     const scoresData=[[{R:1},{R:2},{E:2,TAG_TOXIC:2},{E:1,TAG_TOXIC:1}],[{L:1},{L:2,TAG_ECO:1},{T:1},{T:2}],[{C:0,M:0},{C:2},{M:2},{C:2,M:2}],[{S:1},{A:1},{A:2},{S:2}],[{C:2},{C:0,M:0},{C:2,M:2},{M:2}],[{VAL_ASSASSIN:2},{VAL_MAGE:2},{VAL_MARKSMAN:2},{VAL_SUPPORT:2}],[{T:2},{T:1},{L:2,TAG_ECO:2},{L:1}],[{E:1},{R:2},{R:1},{E:2,TAG_TOXIC:2}],[{S:1},{A:2},{S:2},{A:1}],[{C:2,M:2},{C:0,M:0},{C:2},{M:2}],[{S:1},{A:2},{A:1},{S:2}],[{E:2,TAG_TOXIC:2},{R:1},{E:1,TAG_TOXIC:1},{R:2}],[{T:1},{L:2,TAG_ECO:1},{L:1},{T:2}],[{M:2},{C:2},{C:2,M:2},{C:0,M:0}],[{T:1},{L:2},{T:2},{L:1}],[{VAL_ASSASSIN:2},{VAL_MAGE:2},{VAL_MARKSMAN:2},{VAL_SUPPORT:2}],[{A:2,TAG_ECO:1},{S:1},{S:2},{A:1}],[{R:2},{E:1},{E:2,TAG_TOXIC:1},{R:1}],[{T:1},{L:1},{T:2},{L:2}],[{C:0,M:0},{M:2},{C:2,M:2},{C:2}],[{A:1},{S:2},{A:2},{S:1}],[{R:1},{E:2,TAG_SIMP:2},{R:2},{E:1}],[{T:1},{L:1},{T:2},{L:2,TAG_ECO:1}],[{C:2},{C:2,M:2},{C:0,M:0},{M:2}],[{S:1},{S:2},{A:2},{A:1}],[{VAL_ASSASSIN:2},{VAL_MAGE:2},{VAL_MARKSMAN:2},{VAL_SUPPORT:2}],[{T:2,TAG_SIMP:2},{L:2},{T:1},{L:1}],[{M:2},{C:2,M:2},{C:0,M:0},{C:2}],[{E:1},{E:2,TAG_TOXIC:2},{R:1},{R:2}],[{T:2},{T:1},{L:2},{L:1}],[{E:2,TAG_TOXIC:1},{R:2},{E:1},{R:1}],[{VAL_ASSASSIN:2},{VAL_MAGE:2},{VAL_MARKSMAN:2},{VAL_SUPPORT:2}],[{A:1},{A:2},{S:2},{S:1}],[{M:2},{C:2,M:2},{C:0,M:0},{C:2}],[{R:2},{E:1},{R:1},{E:2,TAG_TOXIC:1}],[{S:1},{A:2},{S:2},{A:1}]];
-    const resultsData={"压力队友型":{slogan:"脾气比技术大，打字手速远超按技能手速",img:"https://img.cdn1.vip/i/69de5ca8ea878_1776180392.webp",desc:'<div class="desc-tagline">确诊为“祖安钢琴家”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>极高情绪输出，崇尚个人英雄主义。操作上限存疑，但打字手速绝对冠绝全场。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你把推塔游戏玩成了大型线上文字辩论赛。顺风时你是峡谷懂哥，逆风时你化身族谱质检员。只要队友的决策稍微没顺着你的心意，你的小喇叭和键盘就会开启高强度运作。你对胜负极度看重，但往往用最伤人的方式来表达胜负欲。你的游戏体验，完全取决于队友是否愿意对你逆来顺受。</div><div class="desc-section"><span class="desc-label">【优点】</span>拥有极强的不屈胜负心和敏锐的局势观察力（虽然全用来挑队友的刺了），打字与沟通反应异于常人，绝不精神内耗。</div><div class="desc-section"><span class="desc-label">【缺点】</span>情绪犹如随时引爆的火药桶，极易引发团队内讧。你那极具压迫感的负能量输出，经常把原本能赢的局变成四个队友的赛博坐牢。</div>'},"驴德华型":{slogan:"又莽又叫，菜且嘴硬",img:"https://img.cdn1.vip/i/69de5bfb33832_1776180219.webp",desc:'<div class="desc-tagline">确诊为“不死不回城”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>极度迷恋热血肉搏，无视大局与微操细节，附带极强的甩锅本能与免责机制。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你的字典里没有“拉扯”，只有“冲锋”和“去世”。你热衷于以少打多、越塔强杀，总幻想着自己能天神下凡，但往往因为走位粗糙瞬间黑屏。最精髓的是，你拥有一套极其严密的“自我免责声明”——死因永远是网卡、断触、或者队友不跟，绝口不提自己上头。你是各大短视频高血压名场面的原生制造机。</div><div class="desc-section"><span class="desc-label">【优点】</span>勇气可嘉，敢打敢拼，从不畏惧接团。你无畏的冲锋偶尔能为团队骗出大量敌方关键大招，堪称顶级的肉身开团器。</div><div class="desc-section"><span class="desc-label">【缺点】</span>过于莽撞且缺乏自知之明，又菜又爱玩。死不承认失误的嘴硬态度，经常把团队节奏带崩，是令路人队友极其窒息的存在。</div>'},"峡谷沸羊羊":{slogan:"纯爱战神，游戏里毫无自我",img:"https://img.cdn1.vip/i/69e2842004422_1776452640.webp",desc:'<div class="desc-tagline">确诊为“纯爱大冤种”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>奉献精神拉满，极度渴求社交认同，为获取特定搭子的情绪价值愿意舍弃一切。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你在峡谷完美演绎了何谓“纯爱战神”。只要搭子在场，你的智商、尊严和战术理解统统让步于“保护ta”。红蓝Buff拱手相让，搭子挨打你交闪现用肉身挡刀。游戏输赢对你而言毫无意义，搭子的战绩和一句“谢谢”才是你的排位KPI。你把竞技对抗玩成了单向奔赴的养成恋爱模拟器。</div><div class="desc-section"><span class="desc-label">【优点】</span>峡谷里最无私的奉献者，极度听话且配合度满分，能为需要情绪价值的玩家提供帝王级的双排游戏体验，脾气温和极少骂人。</div><div class="desc-section"><span class="desc-label">【缺点】</span>毫无底线与自我，容易沦为毫无感情的“赛博宠物”或上分工具人。过于偏心搭子，经常导致队伍里其他路人毫无游戏体验。</div>'},"永远发育型":{slogan:"一人吃三路，团战0输出",img:"https://img.cdn1.vip/i/69de4c89df265_1776176265.webp",desc:'<div class="desc-tagline">确诊为“单机塔防型”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>极致的自我利益驱动，避战意识极强，对兵线和野怪有着近乎偏执的贪婪。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你在玩一款名为《峡谷农场》的单机游戏。你的眼里没有爆发的团战，只有三路兵线和准时刷新的野区。你深信“只要我经济全场第一就能带飞”，于是心安理得地一人吃三路。然而，当队友在前线四打五头破血流时，你总是在遥远的边路岁月静好。你用最理智的避战策略，拿下了最华丽的败方经济面板。</div><div class="desc-section"><span class="desc-label">【优点】</span>极具抗压能力和发育规划能力，懂得避开危险区域获取资源。后期的单带牵制力强大，经常能靠兵线把对手恶心到崩溃。</div><div class="desc-section"><span class="desc-label">【缺点】</span>极致的利己主义，让团队永远处于少人的绝境。空有全场第一的经济，却打出最低的参团率，十足的“团队吸血鬼”。</div>'},"天赋通天代":{slogan:"不需要社交，不打字不点投降，眼里只有水晶",img:"https://img.cdn1.vip/i/69de5c02b4900_1776180226.webp",desc:'<div class="desc-tagline">确诊为“无情收割机”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>微操与大局观双重登顶，情绪极度冷静，信奉个人实力至上的孤狼刺客。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你是黑暗匹配机制中唯一的光。不需要无用的社交沟通，你的大脑自带全图透视和冷却计时。你总能在别人看不见的绝境中，通过令人窒息的细节微操和极致拉扯，行云流水地撕裂对面的防线。队友崩了你不抱怨，逆风局你默默找机会。在你眼中，队友只是诱饵，只要你不死，这局就还有救。</div><div class="desc-section"><span class="desc-label">【优点】</span>操作行云流水，战术深不可测。情绪极其稳定，能在绝境中保持高度专注，是所有玩家连败时最渴望匹配到的真神。</div><div class="desc-section"><span class="desc-label">【缺点】</span>过于孤高自赏，战术意图往往过于超前，导致路人根本跟不上你的节奏。为了追求极限的个人秀，偶尔显得过于冷酷无情。</div>'},"把把力竭型":{slogan:"为了团队当牛做马，打完一看满怀悲愤",img:"https://img.cdn1.vip/i/69e2845c59cf6_1776452700.webp",desc:'<div class="desc-tagline">确诊为“尽力局局长”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>综合技术扎实，团队责任感极强，具备良好的大局意识且能克制负面情绪。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你是峡谷里最令人心疼的“尽力局局长”。你不争位置，为了阵容甘愿补位做牛做马。你懂得支援、控龙，总是尽力在做对团队最好的事，默默承担脏活累活。然而命运总在捉弄你，你拼尽全力打出完美控制或输出，转头却发现队友已经花式送完。你不仅要和对手博弈，还要和队友的智商较劲，打完一局身心俱疲。</div><div class="desc-section"><span class="desc-label">【优点】</span>峡谷最坚实的优质队友，技术全面，大局观出色。拥有难得的牺牲精神，总能在逆风稳住下限，是不可多得的宝藏玩家。</div><div class="desc-section"><span class="desc-label">【缺点】</span>责任心过重，经常把不属于自己的锅揽在身上。过于照顾团队反而容易丢失自己的节奏，一旦队友拉胯，极易陷入深深的无力感中。</div>'},"五杀妄想症":{slogan:"操作可能有，但脑子容易热",img:"https://img.cdn1.vip/i/69dd00ad56f5f_1776091309.webp",desc:'<div class="desc-tagline">确诊为“无脑越塔型”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>极致追求视觉冲击与肌肉记忆，打法极度上头，对大局运营毫无概念。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你的手指极其灵活，苦练各种花里胡哨的连招，但你的眼睛似乎从来不看小地图。只要屏幕出现残血，你的大脑就会瞬间短路，分泌多巴胺高呼“我可以一打五！”随后你不顾一切地交出所有位移冲进人堆。你有时候确实能秀出惊天操作，但更多时候是帅气进场，瞬间融化。</div><div class="desc-section"><span class="desc-label">【优点】</span>拥有令人惊艳的手速和微操底子，操作极具观赏性。极富进攻性和压制力，在顺风局中能成为撕裂敌人防线的绝对尖刀。</div><div class="desc-section"><span class="desc-label">【缺点】</span>脑子里没有“撤退”和“拉扯”的概念。极度容易上头掉点，毫无防Gank意识，常常因为一波无脑的帅气越塔而葬送整个团队的优势。</div>'},"泉水教练组":{slogan:"自己死得最快，切视角切得最溜",img:"https://img.cdn1.vip/i/69de5c977cf7c_1776180375.webp",desc:'<div class="desc-tagline">确诊为“泉水指挥官”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>拥有堪比职业的战术理论，但手指僵硬，极度依赖沟通来填补操作的空白。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你的上帝视角天下无敌！你精通各种英雄克制和兵线运营，但最大的问题是——手太残了。实战中你往往因为操作拉胯而最早阵亡，但当屏幕变成黑白色，你的表演才刚刚开始。你用指点江山的口吻，在泉水里通过语音标记疯狂教导活着的队友该怎么打，试图用语言远程接管比赛。</div><div class="desc-section"><span class="desc-label">【优点】</span>游戏理解深厚，大局观透彻。你敏锐的战术嗅觉偶尔确实能帮助迷茫的团队找到翻盘点，提供了不错的场外指导。</div><div class="desc-section"><span class="desc-label">【缺点】</span>理论满分，实战拉胯。这种“自己死得快，话还特别多”的属性极易让奋战中的队友产生逆反心理，堪称峡谷最吵闹的纸上谈兵大师。</div>'},"团战融化型":{slogan:"团战还没开始就第一个被秒，提款机本尊",img:"https://img.cdn1.vip/i/69de5c022efda_1776180226.webp",desc:'<div class="desc-tagline">确诊为“团战提款机”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>拥有一腔热血和奉献精神，但走位极度糟糕，缺乏对危险距离的基本感知。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>峡谷“好心办坏事”的杰出代表！你极具团队精神，打团总想着冲在最前面开团或保护队友。奈何你的走位像个无头苍蝇，永远站在敌方刺客最舒服的攻击范围内。团战刚开始零点一秒，系统就播报了你被秒杀的消息。你用最热血的态度，打出最快蒸发的战绩，全靠挨打来贡献参团率。</div><div class="desc-section"><span class="desc-label">【优点】</span>态度端正不怕背锅，拥有极强的团队荣誉感。你无畏牺牲的愣头青打法，偶尔也能碰巧骗出对面几个致命的终极技能。</div><div class="desc-section"><span class="desc-label">【缺点】</span>对英雄机制和进场时机毫无理解，彻底沦为对面的移动提款机。由于死得太快，你在团战中几乎是透明人，让队友常年体会四打五的痛楚。</div>'},"人体描边师":{slogan:"提供大量光污染，主打一个陪伴",img:"https://img.cdn1.vip/i/69de4c89c4928_1776176265.webp",desc:'<div class="desc-tagline">确诊为“四大皆空型”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>极度谨慎且畏惧对抗，操作精准度极低，用最安全的站位打出最零碎的输出。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你大概是峡谷派来的“和平大使”。你极度害怕死亡，团战永远站在八百里开外的边缘OB。你非常想打输出，奈何技能仿佛长了眼睛，完美避开所有敌方英雄，在地上精准画出对面的轮廓。你为战役提供了绚丽的光污染，虽然没打出什么实质伤害，但因为站得够远，你通常活得还挺久。</div><div class="desc-section"><span class="desc-label">【优点】</span>极难被单杀，生存率极高，绝不会带头送节奏。脾气通常温和，面对队友的调侃也只会发句“抱歉”，能极大缓和对局气氛。</div><div class="desc-section"><span class="desc-label">【缺点】</span>输出极度刮痧，团战几乎等于隐形人。当队伍极度需要你提供关键控制或致命伤害时，你那感人的命中率总能让残血敌人顺利逃生。</div>'},"峡谷交际花":{slogan:"输赢不重要，搭子最重要",img:"https://img.cdn1.vip/i/69de5c02650e1_1776180226.webp",desc:'<div class="desc-tagline">确诊为“快乐氛围组”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>极高的社交热情与情绪价值，胜负欲淡薄，注重游戏内的互动反馈与外观。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>对你来说，输赢并不重要，开心和社交才是第一位。你的游戏大厅就是交友盲盒，热衷于展示华丽的皮肤，喜欢在局内发可爱的表情和互动快捷语。你极具包容心，甚至连对面杀你，你都能开公屏和对面聊起天来。你用极高的情绪价值，把一款高压竞技游戏玩成了大型线上茶话会。</div><div class="desc-section"><span class="desc-label">【优点】</span>峡谷最顶级的氛围组，心态永远阳光积极。能极大缓解紧张的排位氛围，用温柔化解队友戾气，是连败时最棒的治愈系搭子。</div><div class="desc-section"><span class="desc-label">【缺点】</span>对局势和运营缺乏紧迫感。有时为了打字聊天或者展示皮肤特效，会错过转瞬即逝的战机，让极度想上分的认真玩家感到些许无奈。</div>'},"峡谷公务员":{slogan:"情绪稳定，不坑不C",img:"https://img.cdn1.vip/i/69de5c9096f46_1776180368.webp",desc:'<div class="desc-tagline">确诊为“佛系打卡型”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>情绪极其稳定，各项能力中规中矩，不具备极端的打法偏好，顺应版本对局。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你是支撑起庞大玩家基数的“中坚力量”。按部就班地清线、支援、打团，没有令人拍案叫绝的一打五高光，也不会犯令人发指的离谱失误。面对逆风你波澜不惊，面对压力怪你心如止水。你就像流水线上一颗完美的螺丝钉，默默打卡下班，平凡到游戏结束后大家连你的ID都不会记住。</div><div class="desc-section"><span class="desc-label">【优点】</span>情绪稳定，执行力强，是排位赛中最令人安心的基石玩家。从不惹是生非，能完美适配任何奇葩阵容，维系着团队最基础的下限。</div><div class="desc-section"><span class="desc-label">【缺点】</span>过于平庸保守，缺乏创造奇迹的能力。在陷入绝境、团队极度需要有人站出来一锤定音时，你往往难以承担起破局的核心重任。</div>'},"奇葩抽象怪":{slogan:"选项割裂，思维跳跃的混沌生物",img:"https://img.cdn1.vip/i/69de4cc05894a_1776176320.webp",desc:'<div class="desc-tagline">确诊为“抽象艺术家”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>数据严重冲突，战术逻辑极度跳跃，无法用常理预测的“薛定谔玩家”。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>恭喜你，你的脑回路已经突破了算法的十维解析极限！你可能前一秒还猥琐在塔下死活不出，后一秒就闪现越塔去送；你可能明明拥有绝活哥的手法，却总是选出极其下饭的战术乱逛。你的每一个决策都在推翻你上一秒的逻辑，你那极其割裂且精分的打法不仅让对手满头大汗，更是把自家队友看得一愣一愣的。</div><div class="desc-section"><span class="desc-label">【优点】</span>永远无法被敌方针对和预判，因为你自己都不知道自己下一步要干嘛。你为枯燥的峡谷对局注入了极度不可预测的混沌变量。</div><div class="desc-section"><span class="desc-label">【缺点】</span>精神状态严重领先当前版本，队友完全无法跟你打出任何常规战术配合。你的存在本身就是对排位机制的解构，排到你的队友通常需要极强的速效救心丸。</div>'}};
-    const probabilityMap={"压力队友型":"8.5%","驴德华型":"3.6%","峡谷沸羊羊":"4.5%","永远发育型":"11.2%","天赋通天代":"5.1%","把把力竭型":"8.8%","五杀妄想症":"10.5%","泉水教练组":"8.4%","团战融化型":"9.7%","人体描边师":"8.7%","峡谷交际花":"4.5%","峡谷公务员":"12.5%","奇葩抽象怪":"3.9%"};
+    const resultsData={"压力队友型":{slogan:"脾气比技术大，打字手速远超按技能手速",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“祖安钢琴家”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>极高情绪输出，崇尚个人英雄主义。操作上限存疑，但打字手速绝对冠绝全场。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你把推塔游戏玩成了大型线上文字辩论赛。顺风时你是峡谷懂哥，逆风时你化身族谱质检员。只要队友的决策稍微没顺着你的心意，你的小喇叭和键盘就会开启高强度运作。你对胜负极度看重，但往往用最伤人的方式来表达胜负欲。你的游戏体验，完全取决于队友是否愿意对你逆来顺受。</div><div class="desc-section"><span class="desc-label">【优点】</span>拥有极强的不屈胜负心和敏锐的局势观察力（虽然全用来挑队友的刺了），打字与沟通反应异于常人，绝不精神内耗。</div><div class="desc-section"><span class="desc-label">【缺点】</span>情绪犹如随时引爆的火药桶，极易引发团队内讧。你那极具压迫感的负能量输出，经常把原本能赢的局变成四个队友的赛博坐牢。</div>'},"驴德华型":{slogan:"又莽又叫，菜且嘴硬",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“不死不回城”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>极度迷恋热血肉搏，无视大局与微操细节，附带极强的甩锅本能与免责机制。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你的字典里没有“拉扯”，只有“冲锋”和“去世”。你热衷于以少打多、越塔强杀，总幻想着自己能天神下凡，但往往因为走位粗糙瞬间黑屏。最精髓的是，你拥有一套极其严密的“自我免责声明”——死因永远是网卡、断触、或者队友不跟，绝口不提自己上头。你是各大短视频高血压名场面的原生制造机。</div><div class="desc-section"><span class="desc-label">【优点】</span>勇气可嘉，敢打敢拼，从不畏惧接团。你无畏的冲锋偶尔能为团队骗出大量敌方关键大招，堪称顶级的肉身开团器。</div><div class="desc-section"><span class="desc-label">【缺点】</span>过于莽撞且缺乏自知之明，又菜又爱玩。死不承认失误的嘴硬态度，经常把团队节奏带崩，是令路人队友极其窒息的存在。</div>'},"峡谷沸羊羊":{slogan:"纯爱战神，游戏里毫无自我",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“纯爱大冤种”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>奉献精神拉满，极度渴求社交认同，为获取特定搭子的情绪价值愿意舍弃一切。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你在峡谷完美演绎了何谓“纯爱战神”。只要搭子在场，你的智商、尊严和战术理解统统让步于“保护ta”。红蓝Buff拱手相让，搭子挨打你交闪现用肉身挡刀。游戏输赢对你而言毫无意义，搭子的战绩和一句“谢谢”才是你的排位KPI。你把竞技对抗玩成了单向奔赴的养成恋爱模拟器。</div><div class="desc-section"><span class="desc-label">【优点】</span>峡谷里最无私的奉献者，极度听话且配合度满分，能为需要情绪价值的玩家提供帝王级的双排游戏体验，脾气温和极少骂人。</div><div class="desc-section"><span class="desc-label">【缺点】</span>毫无底线与自我，容易沦为毫无感情的“赛博宠物”或上分工具人。过于偏心搭子，经常导致队伍里其他路人毫无游戏体验。</div>'},"永远发育型":{slogan:"经济全场最高，参团全场最低",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“单机塔防型”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>极致的自我利益驱动，避战意识极强，对兵线和野怪有着近乎偏执的贪婪。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你在玩一款名为《峡谷农场》的单机游戏。你的眼里没有爆发的团战，只有三路兵线和准时刷新的野区。你深信“只要我经济全场第一就能带飞”，于是心安理得地一人吃三路。然而，当队友在前线四打五头破血流时，你总是在遥远的边路岁月静好。你用最理智的避战策略，拿下了最华丽的败方经济面板。</div><div class="desc-section"><span class="desc-label">【优点】</span>极具抗压能力和发育规划能力，懂得避开危险区域获取资源。后期的单带牵制力强大，经常能靠兵线把对手恶心到崩溃。</div><div class="desc-section"><span class="desc-label">【缺点】</span>极致的利己主义，让团队永远处于少人的绝境。空有全场第一的经济，却打出最低的参团率，十足的“团队吸血鬼”。</div>'},"天赋通天代":{slogan:"不需要社交，不打字不点投降，眼里只有水晶",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“无情收割机”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>微操与大局观双重登顶，情绪极度冷静，信奉个人实力至上的孤狼刺客。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你是黑暗匹配机制中唯一的光。不需要无用的社交沟通，你的大脑自带全图透视和冷却计时。你总能在别人看不见的绝境中，通过令人窒息的细节微操和极致拉扯，行云流水地撕裂对面的防线。队友崩了你不抱怨，逆风局你默默找机会。在你眼中，队友只是诱饵，只要你不死，这局就还有救。</div><div class="desc-section"><span class="desc-label">【优点】</span>操作行云流水，战术深不可测。情绪极其稳定，能在绝境中保持高度专注，是所有玩家连败时最渴望匹配到的真神。</div><div class="desc-section"><span class="desc-label">【缺点】</span>过于孤高自赏，战术意图往往过于超前，导致路人根本跟不上你的节奏。为了追求极限的个人秀，偶尔显得过于冷酷无情。</div>'},"把把力竭型":{slogan:"为了团队当牛做马，打完一看满怀悲愤",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“尽力局局长”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>综合技术扎实，团队责任感极强，具备良好的大局意识且能克制负面情绪。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你是峡谷里最令人心疼的“尽力局局长”。你不争位置，为了阵容甘愿补位做牛做马。你懂得支援、控龙，总是尽力在做对团队最好的事，默默承担脏活累活。然而命运总在捉弄你，你拼尽全力打出完美控制或输出，转头却发现队友已经花式送完。你不仅要和对手博弈，还要和队友的智商较劲，打完一局身心俱疲。</div><div class="desc-section"><span class="desc-label">【优点】</span>峡谷最坚实的优质队友，技术全面，大局观出色。拥有难得的牺牲精神，总能在逆风稳住下限，是不可多得的宝藏玩家。</div><div class="desc-section"><span class="desc-label">【缺点】</span>责任心过重，经常把不属于自己的锅揽在身上。过于照顾团队反而容易丢失自己的节奏，一旦队友拉胯，极易陷入深深的无力感中。</div>'},"五杀妄想症":{slogan:"操作可能有，但脑子容易热",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“无脑越塔型”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>极致追求视觉冲击与肌肉记忆，打法极度上头，对大局运营毫无概念。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你的手指极其灵活，苦练各种花里胡哨的连招，但你的眼睛似乎从来不看小地图。只要屏幕出现残血，你的大脑就会瞬间短路，分泌多巴胺高呼“我可以一打五！”随后你不顾一切地交出所有位移冲进人堆。你有时候确实能秀出惊天操作，但更多时候是帅气进场，瞬间融化。</div><div class="desc-section"><span class="desc-label">【优点】</span>拥有令人惊艳的手速和微操底子，操作极具观赏性。极富进攻性和压制力，在顺风局中能成为撕裂敌人防线的绝对尖刀。</div><div class="desc-section"><span class="desc-label">【缺点】</span>脑子里没有“撤退”和“拉扯”的概念。极度容易上头掉点，毫无防Gank意识，常常因为一波无脑的帅气越塔而葬送整个团队的优势。</div>'},"泉水教练组":{slogan:"自己死得最快，切视角切得最溜",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“泉水指挥官”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>拥有堪比职业的战术理论，但手指僵硬，极度依赖沟通来填补操作的空白。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你的上帝视角天下无敌！你精通各种英雄克制和兵线运营，但最大的问题是——手太残了。实战中你往往因为操作拉胯而最早阵亡，但当屏幕变成黑白色，你的表演才刚刚开始。你用指点江山的口吻，在泉水里通过语音标记疯狂教导活着的队友该怎么打，试图用语言远程接管比赛。</div><div class="desc-section"><span class="desc-label">【优点】</span>游戏理解深厚，大局观透彻。你敏锐的战术嗅觉偶尔确实能帮助迷茫的团队找到翻盘点，提供了不错的场外指导。</div><div class="desc-section"><span class="desc-label">【缺点】</span>理论满分，实战拉胯。这种“自己死得快，话还特别多”的属性极易让奋战中的队友产生逆反心理，堪称峡谷最吵闹的纸上谈兵大师。</div>'},"团战融化型":{slogan:"团战还没开始就第一个被秒，提款机本尊",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“团战提款机”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>拥有一腔热血和奉献精神，但走位极度糟糕，缺乏对危险距离的基本感知。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>峡谷“好心办坏事”的杰出代表！你极具团队精神，打团总想着冲在最前面开团或保护队友。奈何你的走位像个无头苍蝇，永远站在敌方刺客最舒服的攻击范围内。团战刚开始零点一秒，系统就播报了你被秒杀的消息。你用最热血的态度，打出最快蒸发的战绩，全靠挨打来贡献参团率。</div><div class="desc-section"><span class="desc-label">【优点】</span>态度端正不怕背锅，拥有极强的团队荣誉感。你无畏牺牲的愣头青打法，偶尔也能碰巧骗出对面几个致命的终极技能。</div><div class="desc-section"><span class="desc-label">【缺点】</span>对英雄机制和进场时机毫无理解，彻底沦为对面的移动提款机。由于死得太快，你在团战中几乎是透明人，让队友常年体会四打五的痛楚。</div>'},"人体描边师":{slogan:"提供大量光污染，主打一个陪伴",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“四大皆空型”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>极度谨慎且畏惧对抗，操作精准度极低，用最安全的站位打出最零碎的输出。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你大概是峡谷派来的“和平大使”。你极度害怕死亡，团战永远站在八百里开外的边缘OB。你非常想打输出，奈何技能仿佛长了眼睛，完美避开所有敌方英雄，在地上精准画出对面的轮廓。你为战役提供了绚丽的光污染，虽然没打出什么实质伤害，但因为站得够远，你通常活得还挺久。</div><div class="desc-section"><span class="desc-label">【优点】</span>极难被单杀，生存率极高，绝不会带头送节奏。脾气通常温和，面对队友的调侃也只会发句“抱歉”，能极大缓和对局气氛。</div><div class="desc-section"><span class="desc-label">【缺点】</span>输出极度刮痧，团战几乎等于隐形人。当队伍极度需要你提供关键控制或致命伤害时，你那感人的命中率总能让残血敌人顺利逃生。</div>'},"峡谷交际花":{slogan:"输赢不重要，搭子最重要",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“快乐氛围组”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>极高的社交热情与情绪价值，胜负欲淡薄，注重游戏内的互动反馈与外观。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>对你来说，输赢并不重要，开心和社交才是第一位。你的游戏大厅就是交友盲盒，热衷于展示华丽的皮肤，喜欢在局内发可爱的表情和互动快捷语。你极具包容心，甚至连对面杀你，你都能开公屏和对面聊起天来。你用极高的情绪价值，把一款高压竞技游戏玩成了大型线上茶话会。</div><div class="desc-section"><span class="desc-label">【优点】</span>峡谷最顶级的氛围组，心态永远阳光积极。能极大缓解紧张的排位氛围，用温柔化解队友戾气，是连败时最棒的治愈系搭子。</div><div class="desc-section"><span class="desc-label">【缺点】</span>对局势和运营缺乏紧迫感。有时为了打字聊天或者展示皮肤特效，会错过转瞬即逝的战机，让极度想上分的认真玩家感到些许无奈。</div>'},"峡谷公务员":{slogan:"情绪稳定，不坑不C",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“佛系打卡型”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>情绪极其稳定，各项能力中规中矩，不具备极端的打法偏好，顺应版本对局。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>你是支撑起庞大玩家基数的“中坚力量”。按部就班地清线、支援、打团，没有令人拍案叫绝的一打五高光，也不会犯令人发指的离谱失误。面对逆风你波澜不惊，面对压力怪你心如止水。你就像流水线上一颗完美的螺丝钉，默默打卡下班，平凡到游戏结束后大家连你的ID都不会记住。</div><div class="desc-section"><span class="desc-label">【优点】</span>情绪稳定，执行力强，是排位赛中最令人安心的基石玩家。从不惹是生非，能完美适配任何奇葩阵容，维系着团队最基础的下限。</div><div class="desc-section"><span class="desc-label">【缺点】</span>过于平庸保守，缺乏创造奇迹的能力。在陷入绝境、团队极度需要有人站出来一锤定音时，你往往难以承担起破局的核心重任。</div>'},"奇葩抽象怪":{slogan:"选项割裂，思维跳跃的混沌生物",img:"https://img.cdn1.vip/i/69dcce9d7d840_1776078493.webp",desc:'<div class="desc-tagline">确诊为“抽象艺术家”</div><div class="desc-section"><span class="desc-label">【核心特质】</span>数据严重冲突，战术逻辑极度跳跃，无法用常理预测的“薛定谔玩家”。</div><div class="desc-section"><span class="desc-label">【人格画像】</span>恭喜你，你的脑回路已经突破了算法的十维解析极限！你可能前一秒还猥琐在塔下死活不出，后一秒就闪现越塔去送；你可能明明拥有绝活哥的手法，却总是选出极其下饭的战术乱逛。你的每一个决策都在推翻你上一秒的逻辑，你那极其割裂且精分的打法不仅让对手满头大汗，更是把自家队友看得一愣一愣的。</div><div class="desc-section"><span class="desc-label">【优点】</span>永远无法被敌方针对和预判，因为你自己都不知道自己下一步要干嘛。你为枯燥的峡谷对局注入了极度不可预测的混沌变量。</div><div class="desc-section"><span class="desc-label">【缺点】</span>精神状态严重领先当前版本，队友完全无法跟你打出任何常规战术配合。你的存在本身就是对排位机制的解构，排到你的队友通常需要极强的速效救心丸。</div>'}};
+    const probabilityMap={"压力队友型":"8.5%","驴德华型":"3.6%","峡谷沸羊羊":"4.5%","永远发育型":"11.2%","天赋通天代":"5.1%","把把力竭型":"8.8%","五杀妄想症":"10.5%","泉水教练组":"8.4%","团战融化型":"9.7%","人体描边师":"8.2%","峡谷交际花":"4.5%","峡谷公务员":"12.5%","奇葩抽象怪":"3.9%"};
     const heroMatrixData={"压力队友型":{ASSASSIN:{name:"裴擒虎",text:"根据您高独狼值与暴躁的脾气，算法锁定裴擒虎。您是个极权主义的峡谷独裁者。您深谙反野之道，但一旦队友支援慢了0.5秒导致您带崩节奏，您就会瞬间化身祖安猛虎，打字速度远超切换形态的手速。赢了是您带飞，输了全是废物，您让这场排位变得像在坐牢。"},MARKSMAN:{name:"百里守约",text:"结合您远程消耗的偏好，算法锁定百里守约。您将团队MOBA玩成了单机狙击模拟器。顺风时您是千里之外的死神；逆风时，您边缘OB的打法让团队陷入4打5的绝境。前排拼死搏杀，您在最后方打中空气，随后敲出恶毒文字指责队友不保人。您的物理输出存在于面板，但打字输出绝对是真实伤害。"},MAGE:{name:"墨子",text:"结合您消耗与辅助的倾向，算法锁定墨子。您是个不折不扣的“吸血型炮台”。您极度迷恋在安全距离外用二技能摸奖，不仅抢射手的兵线，还要在射手被切时发一句“干得漂亮”。您用最安全的站位，干着最恶心对手也恶心队友的事，是名副其实的精神折磨大师。"},SUPPORT:{name:"墨子",text:"结合您消耗与辅助的倾向，算法锁定墨子。您是个不折不扣的“吸血型炮台”。您极度迷恋在安全距离外用二技能摸奖，不仅抢射手的兵线，还要在射手被切时发一句“干得漂亮”。您用最安全的站位，干着最恶心对手也恶心队友的事，是名副其实的精神折磨大师。"}},"驴德华型":{SUPPORT:{name:"吕布",text:"算法检测到您极其莽撞却热爱前排，锁定吕布。您是“跳大等死”型绝活哥。热衷于跳进五个人的包围圈瞬间蒸发，然后开麦怒吼“我大五个你们怎么不上”。您总觉得自己是奉先在世，其实笨重得像个沙袋。后期那一刀真伤，是您战绩1-8却依然嘴硬的唯一资本。"},ASSASSIN:{name:"典韦",text:"结合您的莽撞与近战偏好，算法锁定典韦。您是彻底疯狂的峡谷疯狗，抛弃了人类的理智。眼里只有杀戮，一旦大招劈进去发现打不过，停下来就开始怒喷辅助为什么不给加速。您玩游戏的过程，抛开操作不谈，更像是一次狂犬病发作伴随极度嘴硬的医学观察记录。"},MAGE:{name:"高渐离",text:"结合您莽撞的AOE输出偏好，锁定高渐离。您患有严重的“进场幻想症”。只要按出大招和狂暴，您就觉得自己无敌了，闪现冲进人堆0.1秒黑屏。随后您会在泉水里疯狂敲键盘指责队友怂。您用最简单的英雄，打出了最华丽的送头艺术。"},MARKSMAN:{name:"高渐离",text:"结合您莽撞的AOE输出偏好，锁定高渐离。您患有严重的“进场幻想症”。只要按出大招和狂暴，您就觉得自己无敌了，闪现冲进人堆0.1秒黑屏。随后您会在泉水里疯狂敲键盘指责队友怂。您用最简单的英雄，打出了最华丽的送头艺术。"}},"峡谷沸羊羊":{SUPPORT:{name:"明世隐",text:"根据您极致的倒贴值与保护欲，锁定明世隐。您是一条名副其实的“人形牵引绳”。您放弃了独立行走和独立思考的权利，把输赢、视野、甚至尊严都交给了链子另一端的CP。您极大地满足了对方的虚荣心，将付出者的自我修养在物理层面演绎到了极致。"},MAGE:{name:"嫦娥",text:"根据您法系偏好与极端的保护欲，锁定嫦娥。您囊中羞涩却用看似柔弱实则很肉的法坦作为“挡刀工具”。您心甘情愿榨干自己的蓝量和血条，只为替哥哥/姐姐抗下致命一击。您不仅交出了人头，还交出了真心，是峡谷顶级的大冤种。"},ASSASSIN:{name:"曜",text:"结合您想秀又想倒贴的矛盾心理，锁定曜。您苦练花里胡哨的连招，不仅是为了击杀，更是为了在搭子面前展示您“星光荡开宇宙”的飒爽英姿。哪怕一顿操作猛如虎最终送了塔，只要能换来语音里的一句“哇，好帅”，这波掉大分也就值了。"},MARKSMAN:{name:"曜",text:"结合您想秀又想倒贴的矛盾心理，锁定曜。您苦练花里胡哨的连招，不仅是为了击杀，更是为了在搭子面前展示您“星光荡开宇宙”的飒爽英姿。哪怕一顿操作猛如虎最终送了塔，只要能换来语音里的一句“哇，好帅”，这波掉大分也就值了。"}},"永远发育型":{ASSASSIN:{name:"韩信",text:"结合您对经济的极致贪婪与机动性要求，锁定韩信。峡谷最忙碌的“吸血鬼”！您的眼里只有红蓝buff和三路兵线，位移全用来赶路抢钱。打完一局经济全场第一，输出倒数第二。虽然打团毫无作为，但您断兵偷塔的单机牵制力，确实能把对面恶心到投降。"},SUPPORT:{name:"暗信",text:"结合您极致的单机与避战倾向，锁定暗信（李信）。您是个理智的单机塔防玩家，一辈子住在对面的二塔和高地之间。队友在龙坑4v5头破血流，您在边路岁月静好地偷野推塔。您用近乎机器人的规律执行力，把团队竞技玩成了单人跑酷拆迁模拟器。"},MARKSMAN:{name:"伽罗",text:"结合您对远程输出和经济的极度依赖，锁定伽罗。您坚信“后期无敌”，于是心安理得地吃掉团队所有资源，将前20分钟的对局变成队友的痛苦抗压史。一旦成型，您的长弓确实毁天灭地，但如果队友在10分钟就被推平，您就是对面最喜欢的移动提款机。"},MAGE:{name:"伽罗",text:"结合您对远程输出和经济的极度依赖，锁定伽罗。您坚信“后期无敌”，于是心安理得地吃掉团队所有资源，将前20分钟的对局变成队友的痛苦抗压史。一旦成型，您的长弓确实毁天灭地，但如果队友在10分钟就被推平，您就是对面最喜欢的移动提款机。"}},"天赋通天代":{ASSASSIN:{name:"镜",text:"根据您拉满的手法与意识，锁定镜。您是冷酷无情的峡谷收割机。极其冷静地规划镜像路线，在飞雷神中完成无损击杀。您不爱沟通，因为路人的思维跟不上您的手速。您是所有玩家在绝望逆风时，最想抱住的那条粗壮的大腿。"},MAGE:{name:"不知火舞",text:"结合您极高的操作与法刺偏好，锁定不知火舞。您将多段位移和能量控制计算到了毫秒级。在极度理性的战术掩护下，您总能从最不可思议的角度切入，一扇子定乾坤。您的存在，让对面C位永远不敢离开泉水半步。"},MARKSMAN:{name:"公孙离",text:"结合您极高的微操与拉扯意识，锁定公孙离。您是真正的峡谷舞者。在您的手里，伞不仅是武器，更是戏耍对手的魔术道具。您用极致的反应速度秀翻全场，用实力证明了“没有废物的英雄，只有无法驾驭她的通天代”。"},SUPPORT:{name:"公孙离",text:"结合您极高的微操与拉扯意识，锁定公孙离。您是真正的峡谷舞者。在您的手里，伞不仅是武器，更是戏耍对手的魔术道具。您用极致的反应速度秀翻全场，用实力证明了“没有废物的英雄，只有无法驾驭她的通天代”。"}},"把把力竭型":{SUPPORT:{name:"张飞",text:"结合您极高的团队精神与意识，锁定张飞。最值得信赖的峡谷老父亲！什么伤害都敢抗，一口大招永远为了保C位而留。您总是尽力做着对团队最好的事，默默承担脏活累活。哪怕打完一看队友全死光了，您也只能无奈地摇摇头，拿下败方MVP。"},ASSASSIN:{name:"赵云",text:"结合您均衡的操作与奉献精神，锁定赵云。您是峡谷最扎实的常青树。扎枪精准，七进七出，该开团开团，该让蓝让蓝。您不争不抢，却总是战绩最好看的那一个。当队友花式送头时，您那坚实的背影写满了“带不动”的疲惫感。"},MARKSMAN:{name:"赵云",text:"结合您均衡的操作与奉献精神，锁定赵云。您是峡谷最扎实的常青树。扎枪精准，七进七出，该开团开团，该让蓝让蓝。您不争不抢，却总是战绩最好看的那一个。当队友花式送头时，您那坚实的背影写满了“带不动”的疲惫感。"},MAGE:{name:"弈星",text:"结合您大局观极高且注重团队控场的特点，锁定弈星。您是一位悲情的战术大师。您总能完美框住对面四五个人，铺好了一切输出环境，却眼睁睁看着队友因为怂而不敢上前输出。您不仅在和对手博弈，还要和队友的智商博弈，实属心累。"}},"五杀妄想症":{MAGE:{name:"貂蝉",text:"根据您高超的微操与极低的战术意识，锁定貂蝉。极度贪婪的梦想家！您对自己的二技能无敌帧有着盲目的信仰，脑子里全是“优势在我，可以一打五”。敢在半血时跳进五个壮汉中间，结果吃到一个硬控瞬间暴毙。自信令人钦佩，理智令人抓狂。"},MARKSMAN:{name:"马可波罗",text:"结合您极致的激进与射手偏好，锁定马可波罗。您患有严重的“大招强迫症”。只要扫出一梭子真伤，看到对面站在一起，您的手指就不受控制地按下大招转进人堆。哪怕能量为零，哪怕瞬间融化，您那颗想当救世主的心永远在跳动。"},ASSASSIN:{name:"孙悟空",text:"结合您上头的性格与爆发偏好，锁定孙悟空。大名鼎鼎的吉吉国王！您坚信自己三棒子能敲碎地球。跳出去一棒子敲在出了反甲的肉盾身上，被反弹成残血。您活在自己刀刀暴击的个人集锦美梦里，留给队友的永远是上头猝死的一地鸡毛。"},SUPPORT:{name:"孙悟空",text:"结合您上头的性格与爆发偏好，锁定孙悟空。大名鼎鼎的吉吉国王！您坚信自己三棒子能敲碎地球。跳出去一棒子敲在出了反甲的肉盾身上，被反弹成残血。您活在自己刀刀暴击的个人集锦美梦里，留给队友的永远是上头猝死的一地鸡毛。"}},"泉水教练组":{MAGE:{name:"王昭君",text:"根据您出色的纸上战术与极低的操作，锁定王昭君。全峡谷最安全的键盘侠！永远躲在塔下，放个大招清完线就撤。正因为您猥琐不死，您觉得自己玩得最好，站在道德制高点，一边看着灰屏幕的队友，一边悠闲打字：“你们干嘛要上啊？”"},SUPPORT:{name:"孙膑",text:"结合您高大局观与指挥欲，锁定孙膑。您是跑得最快的战术大师。丢个炸弹，开个二技能给队友加速，自己却永远缩在最后面。打团时您仿佛化身教头，用快捷消息疯狂指点江山。队友战死，您加速跑回泉水，开始长达三分钟的复盘演讲。"},ASSASSIN:{name:"兰陵王",text:"结合您猥琐的意识流偏好，锁定兰陵王。您把刺客玩成了全图监视器。开着隐身在对面头顶挂个感叹号，就是不敢上去切人。您利用绝佳的视野纵观全局，不断用信号指挥队友上去卖，自己却在战术失败后，隐身躲在草丛里敲字指挥。"},MARKSMAN:{name:"兰陵王",text:"结合您猥琐的意识流偏好，锁定兰陵王。您把刺客玩成了全图监视器。开着隐身在对面头顶挂个感叹号，就是不敢上去切人。您利用绝佳的视野纵观全局，不断用信号指挥队友上去卖，自己却在战术失败后，隐身躲在草丛里敲字指挥。"}},"团战融化型":{SUPPORT:{name:"白起",text:"根据您热血送头与零走位的特点，锁定白起。您是典型的“好心办坏事”。看到人就忍不住按大招嘲讽，完全不管队友是不是还在两公里外。您自诩为勇敢的开团机器，实际上在对面眼里，您只是一个送上门来让射手吸血的移动沙包。"},MAGE:{name:"甄姬",text:"结合您对AOE的偏好与糟糕的走位，锁定甄姬。您拥有一颗想控五人的心，却只有送一血的命。不知不觉走到前排探草，大招还没捏出来，就被对面刺客按在地上摩擦。您用自己的生命测出了敌方的爆发伤害，极大加快了队伍被平推的进程。"},MARKSMAN:{name:"鲁班七号",text:"结合您脆弱的站位与强行输出的欲望，锁定鲁班七号。团战爆发不到一秒，您第一个阵亡。您的血条脆得像薯片，走位像无头苍蝇，对面的刺客看到您就像看到了ATM机。您团战0输出，全靠挨打在贡献可怜的参团率。"},ASSASSIN:{name:"鲁班七号",text:"结合您脆弱的站位与强行输出的欲望，锁定鲁班七号。团战爆发不到一秒，您第一个阵亡。您的血条脆得像薯片，走位像无头苍蝇，对面的刺客看到您就像看到了ATM机。您团战0输出，全靠挨打在贡献可怜的参团率。"}},"人体描边师":{SUPPORT:{name:"钟馗",text:"根据您极度猥琐与毫无准头的特性，锁定钟馗。峡谷真正的和平大使！您永远躲在防御塔的最深处出勾，技能完美避开所有敌方英雄，偶尔勾过来一个爹直接导致团灭。您用滑稽的无实物表演，让对手感受到了如沐春风般的安全感。"},ASSASSIN:{name:"钟馗",text:"根据您极度猥琐与毫无准头的特性，锁定钟馗。峡谷真正的和平大使！您永远躲在防御塔的最深处出勾，技能完美避开所有敌方英雄，偶尔勾过来一个爹直接导致团灭。您用滑稽的无实物表演，让对手感受到了如沐春风般的安全感。"},MAGE:{name:"干将莫邪",text:"结合您远程消耗的偏好与极差的手法，锁定干将莫邪。您是一个底盘失控的自走炮塔。双剑永远和敌人擦肩而过，大招更是经常反向扎空气。您在团战中提供的最大价值标记是清兵线和光污染，如果技能空了能返还蓝量，您连家都不用回。"},MARKSMAN:{name:"莱西奥",text:"结合您射手偏好与极低的操作，锁定莱西奥。您非常想打输出，奈何手抖得像帕金森。一遇到危险就按二技能飞上天，然后在天上乱轰一气，一发平A都没打中。您主打一个陪伴式输出，脾气通常挺好，被骂了也只会唯唯诺诺地发句“抱歉”。"}},"峡谷交际花":{SUPPORT:{name:"瑶",text:"根据您拉满的社交属性与辅助偏好，锁定瑶。输赢算什么，漂亮才是王道！您热爱搭配各种星传说皮肤，挂在搭子头上聊天互动。您是峡谷最顶级的氛围组，用“谢谢哥哥”、“对不起没刷出盾”提供着无可替代的情绪价值，这是一款真正的社交游戏。"},MAGE:{name:"妲己",text:"结合您操作简单且注重互动的特性，锁定妲己。蹲在草丛里，您的目标不是秒人，而是为了发一个爱心表情。您对连招的追求远不如对局内互动的热情高。无论顺风逆风，您总能用温柔的文字和可爱的语音安抚队友，是团队不解散的心理调解员。"},MARKSMAN:{name:"孙尚香",text:"结合您灵活的职业偏好与社交属性，锁定孙尚香。您喜欢在人群中翻滚跳跃，更喜欢亮出耀眼的皮肤特效。即使偶尔操作失误，您也能用自嘲的语气巧妙化解尴尬。您的游戏心态极其阳光，是所有人排位连败时最想遇到的欢乐搭子。"},ASSASSIN:{name:"孙尚香",text:"结合您灵活的职业偏好与社交属性，锁定孙尚香。您喜欢在人群中翻滚跳跃，更喜欢亮出耀眼的皮肤特效。即使偶尔操作失误，您也能用自嘲的语气巧妙化解尴尬。您的游戏心态极其阳光，是所有人排位连败时最想遇到的欢乐搭子。"}},"峡谷公务员":{MARKSMAN:{name:"狄仁杰",text:"根据您平稳的心态与中规中矩的操作，锁定狄仁杰。您是标准的基层打工人。按部就班地平A，黄牌定住该定的人。没有一打五的高光，也不会犯离谱的低级错误。您就像流水线上的螺丝钉，拔掉您换另一个正常玩家，对局没有任何区别。"},ASSASSIN:{name:"狄仁杰",text:"根据您平稳的心态与中规中矩的操作，锁定狄仁杰。您是标准的基层打工人。按部就班地平A，黄牌定住该定的人。没有一打五的高光，也不会犯离谱的低级错误。您就像流水线上的螺丝钉，拔掉您换另一个正常玩家，对局没有任何区别。"},SUPPORT:{name:"夏侯惇",text:"结合您完美的数值平衡与前排偏好，锁定夏侯惇。峡谷最完美的万金油！该开团开团，该抗伤抗伤。面对喷子您心如止水，面对劣势您波澜不惊。您用一种机械且稳健的打卡下班精神，成为了这支野鸡团队最不可不可或缺的定海神针。"},MAGE:{name:"安琪拉",text:"结合您普通的操作与战术意识，锁定安琪拉。清线、蹲草、二一三大招，您用最标准刻板的连招度过了一局又一局。您没有太高的心气，也不惹事生非，脾气温和情绪稳定。您太平凡了，平凡到游戏结束都没有人会想起给您点个赞。"}},"奇葩抽象怪":{ASSASSIN:{name:"司马懿",text:"根据您极致割裂的神经回路，锁定司马懿。您是一个纯粹的自杀式袭击者。利用超远位移精准切入，一套丝滑连招秒人后，惊恐地发现自己没有能量逃跑了。您把所有的操作天赋都点在了“如何华丽且抽象地送人头”上，这是一种极致的暴力美学。"},MARKSMAN:{name:"司马懿",text:"根据您极致割裂的神经回路，锁定司马懿。您是一个纯粹的自杀式袭击者。利用超远位移精准切入，一套丝滑连招秒人后，惊恐地发现自己没有能量逃跑了。您把所有的操作天赋都点在了“如何华丽且抽象地送人头”上，这是一种极致的暴力美学。"},SUPPORT:{name:"关羽",text:"结合您无法预测的战术思路，锁定关羽。您的存在本身就是对MOBA机制的嘲弄！您骑着马在全图马拉松，一刀把残血敌人劈回敌方塔下救死扶伤，或者一刀把敌方满级爹推到己方残血C位脸上。您是敌我双方共同的活阎王，短视频名场面的绝佳缔造者。"},MAGE:{name:"姜子牙",text:"根据您不可名状的大局观，锁定姜子牙。您的精神状态领先当前版本一个世纪。大招永远朝向反方向蓄力，美其名曰“封锁走位”。您封神不看经济，看谁顺眼封给谁。您的每一个决策都突破了人类的理解范畴，排到您的队友赛后大概率需要挂个心理科。"}}};
     const heroImagesData={"吕布":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/123/123.jpg","后羿":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/169/169.jpg","米莱狄":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/504/504.jpg","武则天":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/136/136.jpg","嫦娥":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/515/515.jpg","西施":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/523/523.jpg","瑶":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/505/505.jpg","花木兰":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/154/154.jpg","小乔":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/106/106.jpg","安琪拉":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/142/142.jpg","马可波罗":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/132/132.jpg","伽罗":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/508/508.jpg","元歌":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/125/125.jpg","马超":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/518/518.jpg","东方曜":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/522/522.jpg","澜":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/528/528.jpg","貂蝉":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/141/141.jpg","亚瑟":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/166/166.jpg","李信":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/507/507.jpg","暗信":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/507/507.jpg","韩信":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/150/150.jpg","刘禅":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/114/114.jpg","裴擒虎":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/502/502.jpg","宫本武藏":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/130/130.jpg","狄仁杰":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/133/133.jpg","不知火舞":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/157/157.jpg","戈娅":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/548/548.jpg","王昭君":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/152/152.jpg","露娜":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/146/146.jpg","上官婉儿":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/513/513.jpg","朵莉亚":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/558/558.jpg","墨子":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/108/108.jpg","大乔":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/191/191.jpg","苍":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/177/177.jpg","百里守约":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/196/196.jpg","蔡文姬":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/112/112.jpg","鲁班七号":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/112/112.jpg","孙悟空":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/167/167.jpg","司马懿":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/137/137.jpg","女娲":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/149/149.jpg","盘古":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/529/529.jpg","典韦":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/129/129.jpg","盾山":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/509/509.jpg","鬼谷子":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/189/189.jpg","高渐离":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/115/115.jpg","明世隐":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/501/501.jpg","曜":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/522/522.jpg","镜":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/531/531.jpg","公孙离":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/199/199.jpg","张飞":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/171/171.jpg","赵云":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/107/107.jpg","弈星":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/197/197.jpg","孙膑":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/118/118.jpg","兰陵王":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/153/153.jpg","白起":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/120/120.jpg","甄姬":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/127/127.jpg","钟馗":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/175/175.jpg","干将莫邪":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/195/195.jpg","莱西奥":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/544/544.jpg","妲己":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/109/109.jpg","孙尚香":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/111/111.jpg","夏侯惇":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/126/126.jpg","关羽":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/140/140.jpg","姜子牙":"https://game.gtimg.cn/images/yxzj/img201606/heroimg/148/148.jpg"};
 
@@ -650,16 +666,16 @@
     
     document.addEventListener("DOMContentLoaded", () => {
         checkDeviceMode(); window.addEventListener('resize', checkDeviceMode);
-        const savedTheme = localStorage.getItem('wzti_theme_v146');
+        const savedTheme = localStorage.getItem('wzti_theme_v148');
         if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) document.body.classList.add('dark-mode');
-        const saved = localStorage.getItem('wzti_progress_v146');
+        const saved = localStorage.getItem('wzti_progress_v148');
         if (saved) { try { const data = JSON.parse(saved); if (data.userAnswers && data.userAnswers.length > 0) { userAnswers = data.userAnswers; if (data.currentIndex) currentIndex = data.currentIndex; document.getElementById('main-start-btn').innerText = "恢复神经连接 (继续上次进度)"; document.getElementById('restart-btn').style.display = "inline-block"; } } catch (e) {} }
         renderAllTypesGrid(null);
     });
 
-    function toggleTheme() { document.body.classList.toggle('dark-mode'); localStorage.setItem('wzti_theme_v146', document.body.classList.contains('dark-mode') ? 'dark' : 'light'); if (window.redrawRadar && typeof currentScores !== 'undefined' && document.getElementById('result-screen').classList.contains('active')) window.redrawRadar(); }
-    function saveProgress() { localStorage.setItem('wzti_progress_v146', JSON.stringify({ currentIndex, userAnswers })); }
-    function clearProgress() { localStorage.removeItem('wzti_progress_v146'); }
+    function toggleTheme() { document.body.classList.toggle('dark-mode'); localStorage.setItem('wzti_theme_v148', document.body.classList.contains('dark-mode') ? 'dark' : 'light'); if (window.redrawRadar && typeof currentScores !== 'undefined' && document.getElementById('result-screen').classList.contains('active')) window.redrawRadar(); }
+    function saveProgress() { localStorage.setItem('wzti_progress_v148', JSON.stringify({ currentIndex, userAnswers })); }
+    function clearProgress() { localStorage.removeItem('wzti_progress_v148'); }
 
     function resetTestAndClear() {
         if (isAnimating) return; isAnimating = true; clearProgress(); currentIndex = 0; userAnswers = []; currentScores = {}; currentFinalPersonality = null;
@@ -911,45 +927,9 @@
     }
 
     /* =========================================================
-       [ Version 1.4.6 终极跨域防御：图片转置与 SVG Fallback 机制 ] 
-       遇到跨域拦截时，生成绝美的极简卡片，保障海报渲染 100% 成功
+       [ Version 1.4.8 终极纯排版防屏蔽海报生成机制 ] 
+       彻！底！抛！弃！外！部！图！片！纯前端排版渲染，100% 成功。
        ========================================================= */
-
-    function getSvgPlaceholder(textStr, gradientColors) {
-        const text = textStr.length > 4 ? textStr.substring(0, 4) : textStr;
-        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
-            <defs>
-                <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:${gradientColors[0]};stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:${gradientColors[1]};stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <rect width="300" height="300" fill="url(#grad)" rx="60" ry="60"/>
-            <text x="50%" y="50%" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="55" font-weight="900" fill="#ffffff" text-anchor="middle" dominant-baseline="middle" letter-spacing="2">${text}</text>
-        </svg>`;
-        return 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svg)));
-    }
-
-    async function safeFetchImageAsBase64(url, fallbackText, colors) {
-        if (!url || url.startsWith('data:')) return url || getSvgPlaceholder(fallbackText, colors);
-        try {
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 3500); // 3.5秒超时强行熔断
-            const res = await fetch(url, { mode: 'cors', cache: 'no-cache', signal: controller.signal });
-            clearTimeout(timeoutId);
-            if (!res.ok) throw new Error("Fetch failed with status " + res.status);
-            const blob = await res.blob();
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.onloadend = () => resolve(reader.result);
-                reader.onerror = reject;
-                reader.readAsDataURL(blob);
-            });
-        } catch(e) {
-            console.warn("WZTI_SYSTEM: Image CORS blocked or Timeout, utilizing fallback SVG. [ " + fallbackText + " ]");
-            return getSvgPlaceholder(fallbackText, colors);
-        }
-    }
 
     async function generatePoster() {
         const overlay = document.getElementById('poster-loading-overlay');
@@ -960,10 +940,13 @@
         loadingUI.style.display = 'flex'; overlay.classList.add('active');
 
         try {
+            // 延时让浏览器绘制UI，避免卡顿感
+            await new Promise(r => setTimeout(r, 200));
+
             const finalPersonality = currentFinalPersonality || "奇葩抽象怪";
             const isSSR = HIDDEN_TYPES.includes(finalPersonality);
             
-            // 数据装填
+            // 装填文本数据，不包含任何外部 <img> 请求
             document.getElementById('poster-ssr-alert').style.display = isSSR ? 'inline-block' : 'none';
             const nameEl = document.getElementById('poster-type-name'); 
             nameEl.innerText = finalPersonality;
@@ -972,48 +955,37 @@
             document.getElementById('poster-prob').innerText = document.getElementById('probability-tag').innerText;
             document.getElementById('poster-type-slogan').innerText = document.getElementById('result-slogan').innerText;
             
-            // 安全拉取图片，触发跨域立刻生成高颜值 SVG
-            const safeMainImgBase64 = await safeFetchImageAsBase64(
-                document.getElementById('result-image').src, 
-                "WZTI", 
-                ["#E1BEE7", "#8E24AA"]
-            );
-            const safeHeroImgBase64 = await safeFetchImageAsBase64(
-                document.getElementById('hero-image').src, 
-                document.getElementById('hero-name').innerText, 
-                ["#F3E5F5", "#D81B60"]
-            );
-
-            document.getElementById('poster-main-img').src = safeMainImgBase64;
-            document.getElementById('poster-hero-img').src = safeHeroImgBase64;
-            
-            // Canvas 雷达图本来就是同源，直接转
+            // Canvas 雷达图本来就是同源绘制，直接获取 base64 放入海报
             const radarCanvas = document.getElementById('radarChart');
             document.getElementById('poster-radar-img').src = radarCanvas.toDataURL('image/png');
             
-            document.getElementById('poster-hero-name').innerText = document.getElementById('hero-name').innerText;
+            // 英雄版块，用首字母替代图片
+            const heroNameText = document.getElementById('hero-name').innerText;
+            document.getElementById('poster-hero-name').innerText = heroNameText;
+            document.getElementById('poster-hero-circle').innerText = heroNameText.charAt(0);
+            
             document.getElementById('poster-hero-desc').innerHTML = document.getElementById('hero-desc').innerHTML;
             document.getElementById('poster-desc-text').innerHTML = document.getElementById('result-desc-text').innerHTML;
 
             const posterDOM = document.getElementById('poster-container');
 
-            // 彻底去除阻断隐患，安全渲染
+            // 彻底去除阻断隐患，纯 CSS 排版渲染
             const canvas = await html2canvas(posterDOM, {
                 scale: 2,           
                 useCORS: true,      
                 allowTaint: false,  
-                backgroundColor: '#FAFAFC',
+                backgroundColor: '#FDFBFF',
                 logging: false
             });
             
-            const imgData = canvas.toDataURL('image/jpeg', 0.95);
+            const imgData = canvas.toDataURL('image/jpeg', 0.92);
             
             loadingUI.style.display = 'none'; 
             displayArea.style.display = 'flex';
             
             const resultImg = document.createElement('img'); 
             resultImg.src = imgData; 
-            resultImg.style.width = '100%'; resultImg.style.borderRadius = '15px'; resultImg.style.boxShadow = '0 10px 40px rgba(0,0,0,0.5)'; resultImg.style.border = '2px solid rgba(255,255,255,0.2)';
+            resultImg.style.width = '100%'; resultImg.style.borderRadius = '20px'; resultImg.style.boxShadow = '0 15px 40px rgba(0,0,0,0.6)'; resultImg.style.border = '1px solid rgba(255,255,255,0.2)';
             
             const tipText = document.createElement('div');
             tipText.style.color = '#FFF'; tipText.style.marginTop = '20px'; tipText.style.fontSize = '1.1rem'; tipText.style.fontWeight = 'bold'; tipText.style.letterSpacing = '1px';
@@ -1023,16 +995,16 @@
             closeBtn.onclick = () => overlay.classList.remove('active');
             
             if (isDesktopMode) {
-                tipText.innerText = '✅ 海报生成成功！浏览器已自动为您下载。';
+                tipText.innerText = '✅ 海报生成成功！已触发自动下载。';
                 const a = document.createElement('a'); a.download = `WZTI人格检测-${finalPersonality}.jpg`; a.href = imgData; a.click();
             } else {
-                tipText.innerText = '👉 长按上方海报，保存至相册分享 👈';
+                tipText.innerText = '👉 长按上方海报，保存至相册 👈';
             }
             
             displayArea.appendChild(resultImg); displayArea.appendChild(tipText); displayArea.appendChild(closeBtn);
         } catch (error) {
             console.error("Poster Render Error:", error);
-            loadingUI.innerHTML = '<div style="color:#FF5252; font-weight:bold; font-size:1.1rem;">系统组件异常，海报生成失败。<br><span style="font-size:0.85rem; color:#FFF; font-weight:normal;">建议直接截屏保存结果页面。</span></div>';
+            loadingUI.innerHTML = '<div style="color:#FF5252; font-weight:bold; font-size:1.1rem;">渲染引擎异常，请重试或截屏保存。</div>';
             setTimeout(() => overlay.classList.remove('active'), 3500);
         }
     }
